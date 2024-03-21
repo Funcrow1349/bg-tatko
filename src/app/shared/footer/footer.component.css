@@ -1,9 +1,9 @@
 footer {
-    background: rgb(0, 212, 255);
-    ;
+    background: #F2E1AA;
     margin-top: 1em;
     position: absolute;
     bottom: 0;
     width: 100%;
     max-width: 1366px;
+    text-align: center;
 }
