@@ -1,0 +1,28 @@
+.bnr-img {
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+.nav-container {
+    background-color: rgba(241, 222, 162, 0.918);
+    border: 1px solid rgb(244, 238, 238);
+    padding: 0.5em 1em;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.navigation li {
+    list-style: none;
+    padding-right: 2em;
+}
+
+.navigation li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
