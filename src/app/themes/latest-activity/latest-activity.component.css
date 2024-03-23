@@ -1,0 +1,11 @@
+.latest-activity-header p {
+    position: relative;
+    left: 12em;
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+.themes-wrapper {
+    border-bottom: 2px dashed gray;
+    padding: 1em;
+}
