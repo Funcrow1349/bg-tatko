@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -12,10 +13,14 @@ import { DeleteProfileComponent } from './delete-profile/delete-profile.componen
     RegisterComponent,
     ProfileDetailsComponent,
     EditProfileComponent,
-    DeleteProfileComponent
+    DeleteProfileComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class UsersModule { }

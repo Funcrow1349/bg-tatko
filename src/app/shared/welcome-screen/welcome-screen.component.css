@@ -15,57 +15,6 @@
     padding-top: 0.4em;
 }
 
-.wlc-login-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    border-bottom: 2px dashed gray;
-}
-
-.login {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.login * {
-    margin: 0 0.3em 0 0;
-}
-
-.login-btn {
-    background-color: rgba(53, 4, 4, 0.936);
-    color: white;
-    padding: 0.3em 1em;
-    margin-left: 0.5em;
-}
-
-.login-btn:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.register-prompt {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 1em;
-    font-size: 0.9em;
-    gap: 1em;
-}
-
-.register-prompt * {
-    padding: 0;
-    margin: 0;
-}
-
-.register-prompt p:last-child {
-    text-decoration: underline;
-}
-
-.register-prompt p:last-child:hover {
-    cursor: pointer;
-}
-
 .forum-info {
     display: flex;
     justify-content: space-evenly;
