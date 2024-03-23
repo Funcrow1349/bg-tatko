@@ -7,6 +7,6 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
   imports: [CommonModule],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
 })
 export class SharedModule {}

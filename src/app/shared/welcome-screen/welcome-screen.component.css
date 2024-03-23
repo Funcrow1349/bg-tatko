@@ -1,0 +1,58 @@
+.wlc-login-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(243, 221, 213);
+}
+
+.login {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login * {
+    margin-right: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.info-header {
+    background-color: rgba(53, 4, 4, 0.936);
+    color: white;
+    margin-top: 0.5em;
+}
+
+.info-header p {
+    padding: 0.3em;
+}
+
+.login-btn {
+    background-color: rgba(53, 4, 4, 0.936);
+    color: white;
+    padding: 0.3em;
+    margin-left: 0.5em;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.register-prompt {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1em;
+    font-size: 0.9em;
+    gap: 1em;
+}
+
+.register-prompt * {
+    padding: 0;
+    margin: 0;
+}
+
+.register-prompt p:last-child:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
