@@ -1,3 +1,8 @@
+.welcome-screen {
+    background-color: rgb(243, 221, 213);
+    height: 100vh;
+}
+
 .info-header {
     background-color: rgba(53, 4, 4, 0.936);
     color: #F2E1AA;
@@ -13,7 +18,6 @@
 .wlc-login-container {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(243, 221, 213);
     padding: 1em;
     border-bottom: 2px dashed gray;
 }
