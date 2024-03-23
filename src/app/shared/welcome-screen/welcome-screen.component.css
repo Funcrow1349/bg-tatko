@@ -1,7 +1,20 @@
+.info-header {
+    background-color: rgba(53, 4, 4, 0.936);
+    color: white;
+}
+
+.info-header p {
+    font-size: 1.2em;
+    padding: 0.7em;
+    margin: 0;
+}
+
 .wlc-login-container {
     display: flex;
     justify-content: space-between;
     background-color: rgb(243, 221, 213);
+    padding: 1em;
+    border-bottom: 2px dashed gray;
 }
 
 .login {
@@ -11,19 +24,7 @@
 }
 
 .login * {
-    margin-right: 0.3em;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.info-header {
-    background-color: rgba(53, 4, 4, 0.936);
-    color: white;
-    margin-top: 0.5em;
-}
-
-.info-header p {
-    padding: 0.3em;
+    margin: 0 0.3em 0 0;
 }
 
 .login-btn {
@@ -52,7 +53,10 @@
     margin: 0;
 }
 
+.register-prompt p:last-child {
+    text-decoration: underline;
+}
+
 .register-prompt p:last-child:hover {
     cursor: pointer;
-    text-decoration: underline;
 }
