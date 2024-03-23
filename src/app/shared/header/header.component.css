@@ -4,9 +4,10 @@
     height: auto;
 }
 
-.nav-container {
+.main-nav {
+    display: flex;
+    justify-content: space-between;
     background-color: rgba(241, 222, 162, 0.918);
-    border: 1px solid rgb(244, 238, 238);
     padding: 0.5em 1em;
 }
 
