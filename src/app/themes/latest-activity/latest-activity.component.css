@@ -9,11 +9,9 @@
     padding: 0 2em;
 }
 
-.theme-container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: 1px solid #411211;
+.themes-wrapper * {
+    margin-bottom: 0;
+    padding: 0.3em 0.2em;
 }
 
 .themes-header {
@@ -24,22 +22,31 @@
     color: white;
 }
 
+
+.theme-title * {
+    padding-left: 0.7em;
+}
+
+.theme-title p {
+    font-size: 0.7em;
+    font-style: italic;
+}
 .theme-details {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 3em;
+    padding-right: 0.7em;
 }
 
-.theme-meta {
+.theme-container {
     display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
-    gap: 1em;
+    justify-content: space-between;
     background-color: #F3DDD5;
+    border-bottom: 1px solid #411211;
 }
 
-.theme-meta p {
+.theme-details p {
     font-weight: 200;
     font-size: 0.8em;
     font-style: italic;
