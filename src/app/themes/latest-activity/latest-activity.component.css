@@ -6,6 +6,43 @@
 }
 
 .themes-wrapper {
-    border-bottom: 2px dashed gray;
-    padding: 1em;
+    padding: 0 2em;
+}
+
+.theme-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #411211;
+}
+
+.themes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #411211;
+    color: white;
+}
+
+.theme-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3em;
+}
+
+.theme-meta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 1em;
+    background-color: #F3DDD5;
+}
+
+.theme-meta p {
+    font-weight: 200;
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
 }
