@@ -5,6 +5,8 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 import { LoginComponent } from './login/login.component';
+import { UserRoutingModule } from './user-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +19,9 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UserRoutingModule,
+    RouterModule
   ],
   exports: [
     LoginComponent
