@@ -6,10 +6,11 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
 import { UsersModule } from '../users/users.module';
 import { ThemesModule } from '../themes/themes.module';
 import { RouterModule } from '@angular/router';
+import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
-  imports: [CommonModule, UsersModule, ThemesModule, RouterModule],
+  imports: [CommonModule, UsersModule, ThemesModule, RouterModule, SharedRoutingModule],
   exports: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
 })
 export class SharedModule {}
