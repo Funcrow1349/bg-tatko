@@ -1,1 +1,1 @@
-export const EMAIL_DOMAINS = ['bg', 'com'];
+export const VALID_EMAIL_DOMAINS = ['abv.bg', 'gmail.com', 'yahoo.com', 'protonmail.com'];
