@@ -9,8 +9,21 @@ import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
-  imports: [CommonModule, UsersModule, ThemesModule, RouterModule, SharedRoutingModule],
-  exports: [HeaderComponent, FooterComponent, WelcomeScreenComponent],
+  declarations: [
+    HeaderComponent, 
+    FooterComponent, 
+    WelcomeScreenComponent, 
+  ],
+  imports: [
+    CommonModule, 
+    UsersModule, 
+    ThemesModule, 
+    SharedRoutingModule,
+    RouterModule
+  ],
+  exports: [
+    HeaderComponent, 
+    FooterComponent, 
+  ],
 })
 export class SharedModule {}

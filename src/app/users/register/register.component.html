@@ -1,1 +1,88 @@
-<p>register works!</p>
+<div class="container">
+  <form class="register" #form="ngForm" (ngSubmit)="register(form)">
+    <fieldset>
+      <h2>Registration Form</h2>
+
+      <!-- username -->
+      <p class="field field-icon">
+        <label for="username"
+          ><span><i class="fas fa-user"></i></span
+        ></label>
+        <input
+          class="input-error"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Johny"
+          ngModel
+          #inputUsername="ngModel"
+          required
+          minlength="5"
+        />
+      </p>
+
+      <!-- email -->
+      <p class="field field-icon">
+        <label for="email"
+          ><span><i class="fas fa-envelope"></i></span
+        ></label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="john.doe@gmail.com"
+          ngModel
+          #inputEmail="ngModel"
+          required
+          [appEmail]="domains"
+        />
+      </p>
+
+      
+      <p class="field field-icon">
+        <label for="password"
+          ><span><i class="fas fa-lock"></i></span
+        ></label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="******"
+        />
+      </p>
+
+      <!-- rePassword -->
+      <p class="field field-icon">
+        <label for="rePassword"
+          ><span><i class="fas fa-lock"></i></span
+        ></label>
+        <input
+          type="password"
+          name="rePassword"
+          id="rePassword"
+          placeholder="******"
+        />
+      </p>
+
+      <!-- <ng-container *ngIf="passGroup?.get('rePassword')?.touched">
+            <p
+              class="error"
+              *ngIf="passGroup?.errors?.['matchPasswordValidator'] ||
+              passGroup?.get('rePassword')?.errors?.['required']"
+            >
+              Passwords do not match! Please try again!
+            </p>
+          </ng-container> -->
+
+      <!-- [disabled]="form.invalid"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }" -->
+      <button>Create Account</button>
+
+      <p class="text-center">
+        Have an account?
+        <!-- routerLink="/auth/login" -->
+        <a>Log In</a>
+      </p>
+    </fieldset>
+  </form>
+</div>
