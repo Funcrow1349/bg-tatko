@@ -6,10 +6,6 @@ import { ErrorComponent } from './shared/error/error.component';
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "/"},
   {path: "", component: WelcomeScreenComponent},
-  {
-    path: 'auth',
-    loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
-  },
   {path: 'error', component: ErrorComponent},
 ];
 
