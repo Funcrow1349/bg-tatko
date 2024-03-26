@@ -48,6 +48,9 @@
           name="password"
           id="password"
           placeholder="******"
+          ngModel
+          #inputPassword="ngModel"
+          required
         />
       </p>
 
@@ -61,6 +64,9 @@
           name="rePassword"
           id="rePassword"
           placeholder="******"
+          ngModel
+          #inputRePassword="ngModel"
+          required
         />
       </p>
 
@@ -76,7 +82,9 @@
 
       <!-- [disabled]="form.invalid"
           [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }" -->
-      <button>Create Account</button>
+      <button
+      [disabled]="form.invalid"
+      >Create Account</button>
 
       <p class="text-center">
         Have an account?

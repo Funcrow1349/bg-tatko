@@ -7,12 +7,14 @@ import { UsersModule } from '../users/users.module';
 import { ThemesModule } from '../themes/themes.module';
 import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     HeaderComponent, 
     FooterComponent, 
     WelcomeScreenComponent, 
+    ErrorComponent, 
   ],
   imports: [
     CommonModule, 
@@ -24,6 +26,7 @@ import { SharedRoutingModule } from './shared-routing.module';
   exports: [
     HeaderComponent, 
     FooterComponent, 
+    ErrorComponent
   ],
 })
 export class SharedModule {}
