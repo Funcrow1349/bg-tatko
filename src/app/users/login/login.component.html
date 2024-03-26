@@ -1,5 +1,5 @@
 <div class="wlc-login-container">
-  <form class="login">
+  <form class="login" [formGroup]="form" (ngSubmit)="login()">
     <p>Имейл:</p>
     <p>
       <label for="email"></label>
@@ -8,12 +8,13 @@
         name="email"
         id="email"
         placeholder="Напиши своя имейл"
+        formControlName="email"
       />
     </p>
-    <!-- <ng-container>
-        <p class="error">Email is required!</p>
-        <p class="error">Email is not valid!</p>
-      </ng-container> -->
+    <ng-container *ngIf="form.get('email')?.touched">
+      <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+      <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not valid!</p>
+    </ng-container>
     <p>Парола:</p>
     <p>
       <label for="password"></label>
@@ -22,13 +23,14 @@
         name="password"
         id="password"
         placeholder="******"
+        formControlName="password"
       />
     </p>
 
-    <!-- <ng-container>
-        <p class="error">Password is required!</p>
-        <p class="error">Password must be at least 5 characters!</p>
-      </ng-container> -->
+    <ng-container *ngIf="form.get('password')?.touched">
+      <p class="error" *ngIf="form.get('password')?.errors?.['required']">Password is required!</p>
+      <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</p>
+    </ng-container>
 
     <div class="login-btn">
       <p>Вход</p>

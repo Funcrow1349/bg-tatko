@@ -57,7 +57,7 @@ export class UserService {
 
   login(email: string, password: string) {
     return this.http
-      .post<UserForAuth>('/api/login', {email, password})
+      .post<UserForAuth>('/api', {email, password})
       .pipe(tap((user) => this.user$$.next(user)));
   }
 

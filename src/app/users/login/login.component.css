@@ -48,3 +48,10 @@
 .register-prompt p:last-child:hover {
     cursor: pointer;
 }
+
+p.error {
+    text-align: left;
+    font-size: 0.8em;
+    color: red;
+    padding-top: 0;
+}
