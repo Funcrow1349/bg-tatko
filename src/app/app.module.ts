@@ -7,10 +7,12 @@ import { UsersModule } from './users/users.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ThemesModule } from './themes/themes.module';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthenticateComponent
   ],
   imports: [
     BrowserModule,

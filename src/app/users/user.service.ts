@@ -24,7 +24,6 @@ export class UserService {
   register(
     username: string,
     email: string,
-    // tel: string,
     password: string,
     rePassword: string
   ) {
@@ -32,7 +31,6 @@ export class UserService {
       .post<UserForAuth>('/api/register', {
         username,
         email,
-        // tel,
         password,
         rePassword
       })
@@ -45,10 +43,10 @@ export class UserService {
       .pipe(tap((user) => this.user$$.next(user)))
   }
 
-  updateProfile(username: string, email: string, tel?: string) {
+  updateProfile(username: string, email: string) {
     return this.http
       .put<UserForAuth>('/api/users/profile', {
-        username, email, tel,
+        username, email,
       })
       .pipe(tap((user) => this.user$$.next(user)))
   }
