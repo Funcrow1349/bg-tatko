@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { VALID_EMAIL_DOMAINS } from 'src/app/constants';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { emailValidator } from '../utils/email-validator';
+import { VALID_EMAIL_DOMAINS } from 'src/app/constants';
+import { matchPasswordsValidator } from '../utils/match-passwords-validator';
 
 @Component({
   selector: 'app-register',
@@ -10,18 +12,43 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  domains = VALID_EMAIL_DOMAINS;
-  constructor(private userService: UserService, private router: Router) {}
+  form = this.fb.group({
+    username: ['', [Validators.required, Validators.minLength(5)]],
+    email: ['', [Validators.required, emailValidator(VALID_EMAIL_DOMAINS)]],
+    passGroup: this.fb.group({
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      confirmPass: ['', [Validators.required]]
+    }, {
+      validators: [matchPasswordsValidator('password', 'confirmPass')]
+    })
+  })
 
-  register(form: NgForm) {
-    if (form.invalid) {
-      return;
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    ) {}
+
+  get passGroup() {
+    return this.form.get('passGroup')
+  }
+
+  register(): void {
+    if (this.form.invalid) {
+      return
     }
 
-    const { username, email, password, rePassword } = form.value;
+    const {
+      username, 
+      email, 
+      passGroup : { password, confirmPass } = {},
+    } = this.form.value
 
-    this.userService.register(username, email, password, rePassword).subscribe(() => {
-      this.router.navigate(['/']);
-    });
+    this.userService
+      .register(username!, email!, password!, confirmPass!)
+      .subscribe(() => {
+        this.router.navigate(['/'])
+      })
   }
+  
 }

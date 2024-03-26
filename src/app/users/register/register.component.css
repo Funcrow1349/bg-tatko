@@ -1,0 +1,52 @@
+form.register {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #F3DDD5;
+}
+
+.register fieldset {
+    border-radius: 0.3em;
+    padding: 2em;
+}
+
+.register h2 {
+    padding-top: 0;
+    border-bottom: none;
+}
+
+.register p {
+    padding-bottom: 0;
+    padding-top: 0.4em;
+}
+
+.register input {
+    flex: 0 1 100%;
+    border: 1px solid;
+    padding: 0.3em;
+    border-radius: 5px;
+}
+
+.register button {
+    background-color: rgba(53, 4, 4, 0.936);
+    color: white;
+    padding: 0.3em 1em;
+    margin-left: 0.5em;
+}
+
+.register button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.field {
+    display: flex;
+    padding-bottom: 0;
+}
+
+p.error {
+    text-align: left;
+    font-size: 0.8em;
+    color: red;
+    padding-top: 0;
+}

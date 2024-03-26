@@ -1,96 +1,108 @@
+<!-- homepage -->
 <div class="container">
-  <form class="register" #form="ngForm" (ngSubmit)="register(form)">
+  <form class="register" [formGroup]="form" (ngSubmit)="register()">
     <fieldset>
-      <h2>Registration Form</h2>
+      <h2>Регистрация:</h2>
 
       <!-- username -->
       <p class="field field-icon">
         <label for="username"
-          ><span><i class="fas fa-user"></i></span
+          ><span></span
         ></label>
         <input
           class="input-error"
           type="text"
           name="username"
           id="username"
-          placeholder="Johny"
-          ngModel
-          #inputUsername="ngModel"
-          required
-          minlength="5"
+          placeholder="Потребителско име"
+          formControlName="username"
         />
       </p>
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+          Полето е задължително!
+        </p>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+          Потребителското име трябва да съдържа поне 5 символа!
+        </p>
+      </ng-container>
 
       <!-- email -->
       <p class="field field-icon">
         <label for="email"
-          ><span><i class="fas fa-envelope"></i></span
+          ><span></span
         ></label>
         <input
           type="email"
           name="email"
           id="email"
-          placeholder="john.doe@gmail.com"
-          ngModel
-          #inputEmail="ngModel"
-          required
-          [appEmail]="domains"
+          placeholder="имейл"
+          formControlName="email"
         />
       </p>
 
-      
-      <p class="field field-icon">
-        <label for="password"
-          ><span><i class="fas fa-lock"></i></span
-        ></label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="******"
-          ngModel
-          #inputPassword="ngModel"
-          required
-        />
-      </p>
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Полето е задължително!
+        </p>
+        <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
+          Невалиден имейл адрес!
+        </p>
+      </ng-container>
 
-      <!-- rePassword -->
-      <p class="field field-icon">
-        <label for="rePassword"
-          ><span><i class="fas fa-lock"></i></span
-        ></label>
-        <input
-          type="password"
-          name="rePassword"
-          id="rePassword"
-          placeholder="******"
-          ngModel
-          #inputRePassword="ngModel"
-          required
-        />
-      </p>
+      <ng-container formGroupName="passGroup">
+        <!-- password -->
+        <p class="field field-icon">
+          <label for="password"
+            ><span></span
+          ></label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="парола"
+            formControlName="password"
+          />
+        </p>
 
-      <!-- <ng-container *ngIf="passGroup?.get('rePassword')?.touched">
-            <p
-              class="error"
-              *ngIf="passGroup?.errors?.['matchPasswordValidator'] ||
-              passGroup?.get('rePassword')?.errors?.['required']"
-            >
-              Passwords do not match! Please try again!
-            </p>
-          </ng-container> -->
+        <ng-container *ngIf="passGroup?.get('password')?.touched">
+          <p class="error" *ngIf="passGroup?.get('password')?.errors?.['minlength']">
+            Паролата трябва да съдържа поне 5 символа!
+          </p>
+        </ng-container>
 
-      <!-- [disabled]="form.invalid"
-          [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }" -->
+        <!-- rePassword -->
+        <p class="field field-icon">
+          <label for="confirmPass"
+            ><span></span
+          ></label>
+          <input
+            type="password"
+            name="confirmPass"
+            id="confirmPass"
+            placeholder="потвърди паролата"
+            formControlName="confirmPass"
+          />
+        </p>
+
+        <ng-container *ngIf="passGroup?.get('confirmPass')?.touched">
+          <p
+            class="error"
+            *ngIf="passGroup?.errors?.['matchPasswordsValidator'] ||
+            passGroup?.get('confirmPass')?.errors?.['required']"
+          >
+            Паролите не съвпадат! Моля, опитайте отново!
+          </p>
+        </ng-container>
+      </ng-container>
+
       <button
-      [disabled]="form.invalid"
-      >Create Account</button>
+        [disabled]="form.invalid"
+        [style]="{ backgroundColor: form.invalid ? 'grey' : '#411211' }"
+      >
+        Създай акаунт
+      </button>
 
-      <p class="text-center">
-        Have an account?
-        <!-- routerLink="/auth/login" -->
-        <a>Log In</a>
-      </p>
     </fieldset>
   </form>
 </div>
