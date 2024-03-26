@@ -4,7 +4,10 @@
     <p>Всичко, което не можем да обсъждаме пред жените си, се обсъжда тук!</p>
   </div>
 
-  <app-login />
+  <ng-container *ngIf="!isLoggedIn">
+    <app-login />
+  </ng-container>
+  
   <app-latest-activity />
 
   <div class="forum-info">
