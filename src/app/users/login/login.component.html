@@ -32,13 +32,13 @@
       <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</p>
     </ng-container>
 
-    <div class="login-btn">
+    <button class="login-btn">
       <p>Вход</p>
-    </div>
+    </button>
   </form>
 
   <div class="register-prompt">
     <p>Нямаш акаунт?</p>
-    <p routerLink="/register">Регистрирай се!</p>
+    <p routerLink="/auth/register">Регистрирай се!</p>
   </div>
 </div>
