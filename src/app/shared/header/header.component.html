@@ -13,10 +13,10 @@
                 </ul>
             </div>
     
-            <div class="nav-container-right">
+            <div class="nav-container-right" *ngIf="isLoggedIn">
                 <ul class="navigation">
-                    <li routerLink="/profile">Здравей, профил!</li>
-                    <li>Изход</li>
+                    <li routerLink="/profile">Здравей, {{username}}!</li>
+                    <li (click)="logout()">Изход</li>
                 </ul>
             </div>
         </div>

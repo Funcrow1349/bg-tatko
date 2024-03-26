@@ -43,6 +43,10 @@ export class UserService {
       .pipe(tap((user) => this.user$$.next(user)))
   }
 
+  get isLogged(): boolean {
+    return !!this.user
+  }
+
   updateProfile(username: string, email: string) {
     return this.http
       .put<UserForAuth>('/api/users/profile', {
