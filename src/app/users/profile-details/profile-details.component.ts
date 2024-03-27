@@ -27,7 +27,7 @@ export class ProfileDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     const { username, tel, email } = this.userService.user!;
-
+    
     this.profileDetails = {
       username, 
       tel,
@@ -37,7 +37,7 @@ export class ProfileDetailsComponent implements OnInit{
     this.form.setValue({
       username,
       tel,
-      email,
+      email
     })
   }
 

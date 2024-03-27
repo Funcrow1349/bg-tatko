@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserForAuth } from '../types/user';
+import { ProfileDetails, UserForAuth } from '../types/user';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +12,7 @@ export class UserService {
 
   user: UserForAuth | undefined
   USER_KEY = "[user]"
-
+  
   userSubscription: Subscription;
 
   constructor(private http: HttpClient) {
@@ -37,7 +37,7 @@ export class UserService {
       .pipe(tap((user) => this.user$$.next(user)))
   }
 
-  getProfile() {
+  getUser() {
     return this.http
       .get<UserForAuth>('/api/users/profile')
       .pipe(tap((user) => this.user$$.next(user)))
