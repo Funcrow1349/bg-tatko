@@ -4,7 +4,7 @@ import { ProfileDetails } from 'src/app/types/user';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.css']
 })

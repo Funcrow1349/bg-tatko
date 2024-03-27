@@ -15,6 +15,7 @@ import { ErrorComponent } from './error/error.component';
     FooterComponent, 
     WelcomeScreenComponent, 
     ErrorComponent, 
+
   ],
   imports: [
     CommonModule, 
@@ -26,7 +27,7 @@ import { ErrorComponent } from './error/error.component';
   exports: [
     HeaderComponent, 
     FooterComponent, 
-    ErrorComponent
+    ErrorComponent,
   ],
 })
 export class SharedModule {}
