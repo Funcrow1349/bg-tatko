@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProfileDetails, UserForAuth } from '../types/user';
+import { UserForAuth } from '../types/user';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
