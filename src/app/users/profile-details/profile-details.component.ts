@@ -4,7 +4,7 @@ import { ProfileDetails } from 'src/app/types/user';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-profile-details',
+  selector: 'app-profile',
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.css']
 })
@@ -27,7 +27,7 @@ export class ProfileDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     const { username, tel, email } = this.userService.user!;
-    
+
     this.profileDetails = {
       username, 
       tel,
@@ -37,7 +37,7 @@ export class ProfileDetailsComponent implements OnInit{
     this.form.setValue({
       username,
       tel,
-      email
+      email,
     })
   }
 
