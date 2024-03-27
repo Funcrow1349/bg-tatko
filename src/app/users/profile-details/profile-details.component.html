@@ -1,1 +1,50 @@
-<p>profile-details works!</p>
+<!-- homepage -->
+<div class="profile-container">
+  <div class="profile-details">
+    <h3>Потребителско име:</h3>
+
+    <!-- READONLY MODE -->
+    <ng-container *ngIf="!editMode">
+      <div class="profile-username">
+        <p>{{ profileDetails.username }}</p>
+      </div>
+      <button class="edit-button" (click)="onToggle()">Промени</button>
+    </ng-container>
+
+    <!-- EDIT PROFILE MODE -->
+
+    <ng-container *ngIf="editMode">
+      <form [formGroup]="form" (ngSubmit)="saveProfileHandle()">
+        <div class="profile-username">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            [value]="profileDetails.username"
+            formControlName="username"
+          />
+        </div>
+
+        <!-- username validations -->
+        <ng-container *ngIf="form.get('username')?.touched">
+          <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+            Username is required!
+          </p>
+          <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+            Username must have at least 5 characters!
+          </p>
+        </ng-container>
+
+        <!-- Actions -->
+        <button class="cancel-button" (click)="onCancel($event)">Отмени</button>
+        <button
+          class="save-button"
+          [disabled]="form.invalid"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : 'green' }"
+        >
+          Запази
+        </button>
+      </form>
+    </ng-container>
+  </div>
+</div>
