@@ -8,8 +8,7 @@ import { LatestActivityComponent } from './latest-activity/latest-activity.compo
 import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
 import { ThemesRoutingModule } from './themes-routing.module';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from "../shared/shared.module";
-import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
+import { FormatHourPipe } from './pipes/format-hour.pipe';
 
 
 
@@ -21,7 +20,7 @@ import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
         AddCommentComponent,
         LatestActivityComponent,
         DeleteCommentComponent,
-        ElapsedTimePipe
+        FormatHourPipe
     ],
     exports: [
         LatestActivityComponent

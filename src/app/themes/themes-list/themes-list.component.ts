@@ -22,7 +22,7 @@ export class ThemesListComponent implements OnInit{
     this.themesService.getThemes().subscribe(themes => {
       // Sort themes by created_at in ascending order
       this.themes = themes.sort((a, b) => {
-        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
       });
     });
   }
