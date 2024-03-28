@@ -14,8 +14,7 @@ import { ErrorComponent } from './error/error.component';
     HeaderComponent, 
     FooterComponent, 
     WelcomeScreenComponent, 
-    ErrorComponent, 
-
+    ErrorComponent,
   ],
   imports: [
     CommonModule, 

@@ -6,23 +6,30 @@ import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { LatestActivityComponent } from './latest-activity/latest-activity.component';
 import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
+import { ThemesRoutingModule } from './themes-routing.module';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from "../shared/shared.module";
+import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 
 
 
 @NgModule({
-  declarations: [
-    ThemesListComponent,
-    NewThemeComponent,
-    CurrentThemeComponent,
-    AddCommentComponent,
-    LatestActivityComponent,
-    DeleteCommentComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    LatestActivityComponent
-  ]
+    declarations: [
+        ThemesListComponent,
+        NewThemeComponent,
+        CurrentThemeComponent,
+        AddCommentComponent,
+        LatestActivityComponent,
+        DeleteCommentComponent,
+        ElapsedTimePipe
+    ],
+    exports: [
+        LatestActivityComponent
+    ],
+    imports: [
+        CommonModule,
+        ThemesRoutingModule,
+        RouterModule,
+    ]
 })
 export class ThemesModule { }

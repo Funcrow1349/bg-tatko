@@ -1,0 +1,48 @@
+.themes-wrapper * {
+    margin-bottom: 0;
+    padding: 0.3em 0.2em;
+}
+
+.themes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #411211;
+    color: white;
+}
+
+.theme-title * {
+    padding-left: 0.7em;
+}
+
+.theme-title h4:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.theme-title p {
+    font-size: 0.7em;
+    font-style: italic;
+}
+.theme-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3em;
+    padding-right: 0.7em;
+}
+
+.theme-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F3DDD5;
+    border-bottom: 1px solid #411211;
+}
+
+.theme-details p {
+    font-weight: 200;
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+}
