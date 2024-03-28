@@ -1,0 +1,25 @@
+.forum-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(243, 221, 213);
+    padding: 1em;
+    margin: 0;
+}
+
+.forum-info-header p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.forum-stats {
+    display: flex;
+    gap: 2em;
+}
+
+.forum-stats p {
+    display: flex;
+    gap: 2em;
+    font-size: 0.8em;
+    margin: 0;
+}

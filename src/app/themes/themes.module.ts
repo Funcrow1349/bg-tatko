@@ -10,6 +10,7 @@ import { ThemesRoutingModule } from './themes-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormatHourPipe } from './pipes/format-hour.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
+import { ForumStatsComponent } from './forum-stats/forum-stats.component';
 
 @NgModule({
     declarations: [
@@ -21,9 +22,11 @@ import { FormatDatePipe } from './pipes/format-date.pipe';
         DeleteCommentComponent,
         FormatHourPipe,
         FormatDatePipe,
+        ForumStatsComponent,
     ],
     exports: [
-        LatestActivityComponent
+        LatestActivityComponent,
+        ForumStatsComponent
     ],
     imports: [
         CommonModule,
