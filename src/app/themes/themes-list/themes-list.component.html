@@ -13,8 +13,8 @@
   <!-- <div class="theme-container" *ngFor="let theme of themes"> -->
   <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
     <div class="theme-title">
-      <h4>{{ theme.themeName }}</h4>
-      <p>Последно мнение от Атанас преди 1ч и 12мин</p>
+      <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
+      <p>Последна активност на {{theme.updatedAt | formatDate}} в {{ theme.updatedAt | formatHour }}</p>
     </div>
     <div class="theme-details">
       <p>

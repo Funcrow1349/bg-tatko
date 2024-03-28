@@ -11,8 +11,6 @@ import { RouterModule } from '@angular/router';
 import { FormatHourPipe } from './pipes/format-hour.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 
-
-
 @NgModule({
     declarations: [
         ThemesListComponent,
@@ -22,7 +20,7 @@ import { FormatDatePipe } from './pipes/format-date.pipe';
         LatestActivityComponent,
         DeleteCommentComponent,
         FormatHourPipe,
-        FormatDatePipe
+        FormatDatePipe,
     ],
     exports: [
         LatestActivityComponent
