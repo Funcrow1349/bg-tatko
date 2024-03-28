@@ -58,3 +58,15 @@
     padding: 0;
     margin: 0;
 }
+
+.format-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.format-time span {
+    padding: 0;
+    margin: 0;
+}
