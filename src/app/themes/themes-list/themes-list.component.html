@@ -23,7 +23,8 @@
       <p>
         <span>{{ theme.posts.length }}</span>
       </p>
-      <p>
+      <p class="format-time">
+        <span>{{ theme.created_at | formatDate }}</span>
         <span>{{ theme.created_at | formatHour }}</span>
       </p>
     </div>

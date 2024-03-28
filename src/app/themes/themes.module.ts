@@ -9,6 +9,7 @@ import { DeleteCommentComponent } from './delete-comment/delete-comment.componen
 import { ThemesRoutingModule } from './themes-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormatHourPipe } from './pipes/format-hour.pipe';
+import { FormatDatePipe } from './pipes/format-date.pipe';
 
 
 
@@ -20,7 +21,8 @@ import { FormatHourPipe } from './pipes/format-hour.pipe';
         AddCommentComponent,
         LatestActivityComponent,
         DeleteCommentComponent,
-        FormatHourPipe
+        FormatHourPipe,
+        FormatDatePipe
     ],
     exports: [
         LatestActivityComponent
