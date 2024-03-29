@@ -10,7 +10,14 @@
     </div>
   </div>
 
-  <!-- <div class="theme-container" *ngFor="let theme of themes"> -->
+  <ng-container *ngIf="isLoggedIn && !newThemeField">
+    <button (click)="toggleNewTheme()">Нова тема</button>
+  </ng-container>
+
+  <ng-container *ngIf="newThemeField">
+    <app-new-theme></app-new-theme>
+  </ng-container>
+
   <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
     <div class="theme-title">
       <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>

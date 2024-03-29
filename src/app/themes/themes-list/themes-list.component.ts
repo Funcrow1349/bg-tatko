@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemesService } from '../themes.service';
 import { Theme } from 'src/app/types/theme';
+import { UserService } from 'src/app/users/user.service';
 
 @Component({
   selector: 'app-themes-list',
@@ -11,8 +12,9 @@ export class ThemesListComponent implements OnInit{
   themes: Theme[] = []
   currentPage: number = 1;
   themesPerPage: number = 5;
+  newThemeField: boolean = false;
 
-  constructor (private themesService: ThemesService) {}
+  constructor (private themesService: ThemesService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadThemes();
@@ -39,5 +41,13 @@ export class ThemesListComponent implements OnInit{
 
   getTotalPages(): number {
     return Math.ceil(this.themes.length / this.themesPerPage);
+  }
+
+  toggleNewTheme(): void {
+    this.newThemeField = !this.newThemeField
+  }
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Theme } from 'src/app/types/theme';
 import { ThemesService } from '../themes.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/users/user.service';
 
 @Component({
   selector: 'app-current-theme',
@@ -13,7 +14,8 @@ export class CurrentThemeComponent {
 
   constructor(
     private themesService: ThemesService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +26,9 @@ export class CurrentThemeComponent {
         this.theme = theme;
       });
     });
+  }
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
   }
 }
