@@ -1,48 +1,55 @@
 <div class="container">
-    <!-- theme content  -->
-    <div class="theme-content">
-      <!-- theme-title  -->
-      <div class="theme-title">
-        <div class="theme-name-wrapper">
-          <div class="theme-name">
-            <h2>{{ theme.themeName }}</h2>
-            <p>
-              Date: <time>{{ theme.created_at }}</time>
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- comment  -->
-      <div class="comment" *ngFor="let post of theme.posts">
-        <header class="header">
+  <!-- theme content  -->
+  <div class="theme-content">
+    <!-- theme-title  -->
+    <div class="theme-title">
+      <div class="theme-name-wrapper">
+        <div class="theme-name">
+          <h2>{{ theme.themeName }}</h2>
           <p>
-            <span>{{ post.userId.username }}</span> posted on
-            <time>{{ post.created_at }}</time>
+            Date: <time>{{ theme.created_at }}</time>
           </p>
-        </header>
-        <div class="comment-main">
-          <div class="post-content">
-            <p>
-              {{ post.text }}
-            </p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="answer-comment" *ngIf="isLoggedIn">
-        <p><span>currentUser</span> comment:</p>
-        <div class="answer">
-          <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
-            <textarea 
-            name="postText" 
-            id="comment" 
-            cols="30" 
-            rows="10"
-            formControlName="postText"
-            ></textarea>
-            <button>Post</button>
-          </form>
         </div>
       </div>
     </div>
+    <!-- comment  -->
+    <div class="comment" *ngFor="let post of theme.posts">
+      <header class="header">
+        <p>
+          <span>{{ post.userId.username }}</span> posted on
+          <time>{{ post.created_at }}</time>
+        </p>
+      </header>
+      <div class="comment-main">
+        <div class="post-content">
+          <p>
+            {{ post.text }}
+          </p>
+        </div>
+        
+        <ng-container *ngIf="post.userId.email === currentUserEmail">
+          <div class="post-controls">
+            <button>Редактирай</button>
+            <button>Изтрий</button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="answer-comment" *ngIf="isLoggedIn">
+      <p><span>currentUser</span> comment:</p>
+      <div class="answer">
+        <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
+          <textarea
+            name="postText"
+            id="comment"
+            cols="30"
+            rows="10"
+            formControlName="postText"
+          ></textarea>
+          <button>Post</button>
+        </form>
+      </div>
+    </div>
   </div>
+</div>

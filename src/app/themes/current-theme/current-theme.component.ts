@@ -38,6 +38,10 @@ export class CurrentThemeComponent {
     return this.userService.isLogged;
   }
 
+  get currentUserEmail(): string {
+    return this.userService.user?.email || '';
+  }
+
   addComment(id: string): void {
     if (this.form.invalid) {
       return;

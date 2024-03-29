@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+
   private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
   private user$ = this.user$$.asObservable();
-
   user: UserForAuth | undefined
   USER_KEY = "[user]"
-  
   userSubscription: Subscription;
-
+ 
   constructor(private http: HttpClient) {
     this.userSubscription = this.user$.subscribe((user) => {
       this.user = user;
