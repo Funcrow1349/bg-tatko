@@ -32,6 +32,6 @@ export class ThemesService {
     const { apiUrl } = environment;
     const payload = { themeName, postText };
 
-    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+    return this.http.post<Theme>(`/api/themes`, payload);
   }
 }

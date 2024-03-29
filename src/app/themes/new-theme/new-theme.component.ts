@@ -28,14 +28,8 @@ export class NewThemeComponent {
     const { themeName, postText } = this.form.value;
 
     this.themesService.createTheme(themeName!, postText!).subscribe(() => {
-      this.newThemeService.toggleNewTheme()
+      this.newThemeService.toggleNewTheme();
     });
   }
 
-  onCancel(e: Event) {
-    e.preventDefault();
-    console.log("raboti");
-    
-    this.newThemeService.toggleNewTheme()
-  }
 }

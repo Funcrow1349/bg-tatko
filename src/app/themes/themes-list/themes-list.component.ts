@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ThemesService } from '../themes.service';
 import { Theme } from 'src/app/types/theme';
 import { UserService } from 'src/app/users/user.service';
