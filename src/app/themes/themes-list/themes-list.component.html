@@ -1,28 +1,30 @@
 <div class="themes-wrapper">
-  <div class="themes-header">
-    <div class="theme-title">
-      <h4>Теми:</h4>
-    </div>
-    <div class="theme-details">
-      <p>автор</p>
-      <p>мнения</p>
-      <p>създадена</p>
-    </div>
-  </div>
-
-  <ng-container *ngIf="isLoggedIn && !newThemeField">
-    <button (click)="toggleNewTheme()">Нова тема</button>
+  <ng-container *ngIf="isLoggedIn && !newThemeService.newThemeField">
+    <button (click)="newThemeService.toggleNewTheme()">Нова тема</button>
   </ng-container>
 
-  <ng-container *ngIf="newThemeField">
+  <ng-container *ngIf="newThemeService.newThemeField">
     <app-new-theme></app-new-theme>
   </ng-container>
 
-  <ng-container *ngIf="!newThemeField">
+  <ng-container *ngIf="!newThemeService.newThemeField">
+    <div class="themes-header">
+      <div class="theme-title">
+        <h4>Теми:</h4>
+      </div>
+      <div class="theme-details">
+        <p>автор</p>
+        <p>мнения</p>
+        <p>създадена</p>
+      </div>
+    </div>
     <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
       <div class="theme-title">
         <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
-        <p>Последна активност на {{theme.updatedAt | formatDate}} в {{ theme.updatedAt | formatHour }}</p>
+        <p>
+          Последна активност на {{ theme.updatedAt | formatDate }} в
+          {{ theme.updatedAt | formatHour }}
+        </p>
       </div>
       <div class="theme-details">
         <p>
@@ -38,11 +40,19 @@
       </div>
     </div>
     <div>
-      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Предишна</button>
-      <span>Страница {{ currentPage }} от {{getTotalPages()}} </span>
-      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getTotalPages()">Следваща</button>
+      <button
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Предишна
+      </button>
+      <span>Страница {{ currentPage }} от {{ getTotalPages() }} </span>
+      <button
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage === getTotalPages()"
+      >
+        Следваща
+      </button>
     </div>
   </ng-container>
-
-  
 </div>
