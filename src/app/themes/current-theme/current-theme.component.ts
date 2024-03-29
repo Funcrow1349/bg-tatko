@@ -12,6 +12,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CurrentThemeComponent {
   showPostField: boolean = false;
+  showEditPostField: boolean = false;
+
   theme = {} as Theme;
 
   form = this.fb.group({
@@ -61,4 +63,5 @@ export class CurrentThemeComponent {
     this.toggleShowPostField()
     this.form.reset()
   }
+
 }
