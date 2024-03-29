@@ -9,7 +9,7 @@ import { NewThemeService } from '../new-theme.service';
   templateUrl: './themes-list.component.html',
   styleUrls: ['./themes-list.component.css']
 })
-export class ThemesListComponent implements OnInit{
+export class ThemesListComponent implements OnInit {
   themes: Theme[] = []
   currentPage: number = 1;
   themesPerPage: number = 5;
@@ -50,4 +50,5 @@ export class ThemesListComponent implements OnInit{
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
+
 }
