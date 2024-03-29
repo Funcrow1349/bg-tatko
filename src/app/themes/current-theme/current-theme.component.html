@@ -36,8 +36,9 @@
       </div>
     </div>
 
-    <div class="answer-comment" *ngIf="isLoggedIn">
-      <p>Коментирай:</p>
+    <button (click)="toggleShowPostField()">Публикувай отговор:</button>
+
+    <div class="answer-comment" *ngIf="isLoggedIn && showPostField">
       <div class="answer">
         <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
           <textarea

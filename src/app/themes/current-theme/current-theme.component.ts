@@ -11,6 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./current-theme.component.css']
 })
 export class CurrentThemeComponent {
+  showPostField: boolean = false;
   theme = {} as Theme;
 
   form = this.fb.group({
@@ -42,6 +43,10 @@ export class CurrentThemeComponent {
     return this.userService.user?.email || '';
   }
 
+  toggleShowPostField(): void {
+    this.showPostField = !this.showPostField
+  }
+
   addComment(id: string): void {
     if (this.form.invalid) {
       return;
@@ -53,5 +58,7 @@ export class CurrentThemeComponent {
       this.ngOnInit()
     });
 
+    this.toggleShowPostField()
+    this.form.reset()
   }
 }
