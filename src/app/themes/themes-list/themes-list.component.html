@@ -18,27 +18,31 @@
     <app-new-theme></app-new-theme>
   </ng-container>
 
-  <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
-    <div class="theme-title">
-      <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
-      <p>Последна активност на {{theme.updatedAt | formatDate}} в {{ theme.updatedAt | formatHour }}</p>
+  <ng-container *ngIf="!newThemeField">
+    <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
+      <div class="theme-title">
+        <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
+        <p>Последна активност на {{theme.updatedAt | formatDate}} в {{ theme.updatedAt | formatHour }}</p>
+      </div>
+      <div class="theme-details">
+        <p>
+          <span>{{ theme.userId.username }}</span>
+        </p>
+        <p>
+          <span>{{ theme.posts.length }}</span>
+        </p>
+        <p class="format-time">
+          <span>{{ theme.created_at | formatDate }}</span>
+          <span>{{ theme.created_at | formatHour }}</span>
+        </p>
+      </div>
     </div>
-    <div class="theme-details">
-      <p>
-        <span>{{ theme.userId.username }}</span>
-      </p>
-      <p>
-        <span>{{ theme.posts.length }}</span>
-      </p>
-      <p class="format-time">
-        <span>{{ theme.created_at | formatDate }}</span>
-        <span>{{ theme.created_at | formatHour }}</span>
-      </p>
+    <div>
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Предишна</button>
+      <span>Страница {{ currentPage }} от {{getTotalPages()}} </span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getTotalPages()">Следваща</button>
     </div>
-  </div>
-  <div>
-    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Предишна</button>
-    <span>Страница {{ currentPage }} от {{getTotalPages()}} </span>
-    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getTotalPages()">Следваща</button>
-  </div>
+  </ng-container>
+
+  
 </div>

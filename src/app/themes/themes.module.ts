@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { FormatHourPipe } from './pipes/format-hour.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 import { ForumStatsComponent } from './forum-stats/forum-stats.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import { ForumStatsComponent } from './forum-stats/forum-stats.component';
         CommonModule,
         ThemesRoutingModule,
         RouterModule,
+        ReactiveFormsModule
     ]
 })
 export class ThemesModule { }
