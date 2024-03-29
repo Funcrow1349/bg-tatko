@@ -37,7 +37,7 @@
     </div>
 
     <div class="answer-comment" *ngIf="isLoggedIn">
-      <p><span>currentUser</span> comment:</p>
+      <p>Коментирай:</p>
       <div class="answer">
         <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
           <textarea
@@ -47,7 +47,7 @@
             rows="10"
             formControlName="postText"
           ></textarea>
-          <button>Post</button>
+          <button>Публикувай коментар</button>
         </form>
       </div>
     </div>
