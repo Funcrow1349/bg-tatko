@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnDestroy } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import { Injectable } from '@angular/core';
 import { Theme } from '../types/theme';
 import { Post } from '../types/post';
 
@@ -12,24 +11,23 @@ export class ThemesService {
   constructor(private http: HttpClient) {}
 
   getThemes() {
-    const { apiUrl } = environment
-
-    return this.http.get<Theme[]>(`${apiUrl}/themes`)
+    return this.http.get<Theme[]>('/api/themes')
   }
 
   getPosts() {
-    const { apiUrl } = environment
-    let url = `${apiUrl}/posts`
-    return this.http.get<Post[]>(url)
+    return this.http.get<Post[]>('/api/posts')
   }
 
   getTheme(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<Theme>(`${apiUrl}/themes/${id}`);
+    return this.http.get<Theme>(`/api/themes/${id}`);
   }
 
   createTheme(themeName: string, postText: string) {
     return this.http.post<Theme>(`/api/themes`, { themeName, postText });
+  }
+
+  createPost(id: string, postText: string) {
+    return this.http.post<Post>(`/api/themes/${id}`, { postText })
   }
 
 }
