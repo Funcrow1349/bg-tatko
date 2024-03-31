@@ -8,6 +8,8 @@ import { ThemesModule } from '../themes/themes.module';
 import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
 import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { ErrorComponent } from './error/error.component';
     FooterComponent, 
     WelcomeScreenComponent, 
     ErrorComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule, 
@@ -27,6 +30,7 @@ import { ErrorComponent } from './error/error.component';
     HeaderComponent, 
     FooterComponent, 
     ErrorComponent,
+    NotFoundComponent
   ],
 })
 export class SharedModule {}

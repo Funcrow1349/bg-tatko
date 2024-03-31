@@ -8,7 +8,7 @@ import { NewThemeService } from '../new-theme.service';
   templateUrl: './new-theme.component.html',
   styleUrls: ['./new-theme.component.css'],
 })
-export class NewThemeComponent{
+export class NewThemeComponent implements OnDestroy{
   form = this.fb.group({
     themeName: ['', [Validators.required, Validators.minLength(5)]],
     postText: ['', [Validators.required, Validators.minLength(10)]],
@@ -30,6 +30,10 @@ export class NewThemeComponent{
     this.themesService.createTheme(themeName!, postText!).subscribe(() => {
       this.newThemeService.toggleNewTheme();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.newThemeService.toggleNewTheme()
   }
 
 }
