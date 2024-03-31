@@ -4,7 +4,6 @@ import { ThemesService } from '../themes.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/users/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Post } from 'src/app/types/post';
 
 @Component({
   selector: 'app-current-theme',
@@ -14,6 +13,7 @@ import { Post } from 'src/app/types/post';
 export class CurrentThemeComponent {
   showPostField: boolean = false;
   editFormVisibility: { [postId: string]: boolean } = {};
+  deletePromptVisibility: { [postId: string]: boolean } = {};
 
   theme = {} as Theme;
 
@@ -54,7 +54,7 @@ export class CurrentThemeComponent {
     this.showPostField = !this.showPostField
   }
 
-  toggleShowEditPostField(postId: string) {
+  toggleEditFormVisibility(postId: string) {
     this.editFormVisibility[postId] = !this.editFormVisibility[postId];
 
     if (this.editFormVisibility[postId]) {
@@ -67,6 +67,14 @@ export class CurrentThemeComponent {
 
   isEditFormVisible(postId: string): boolean {
     return this.editFormVisibility[postId];
+  }
+
+  toggleDeletePromptVisibility(postId: string) {
+    this.deletePromptVisibility[postId] = !this.deletePromptVisibility[postId]
+  }
+
+  isDeletePromptVisible(postId: string) {
+    return this.deletePromptVisibility[postId]
   }
 
   addComment(id: string): void {
@@ -95,7 +103,13 @@ export class CurrentThemeComponent {
       this.ngOnInit()
     })
 
-    this.toggleShowEditPostField(postId)
+    this.toggleEditFormVisibility(postId)
+  }
+
+  deleteComment(themeId: string, postId: string) {
+    this.themesService.deletePost(themeId, postId).subscribe(() => {
+      this.ngOnInit()
+    })
   }
 
 }

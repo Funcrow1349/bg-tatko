@@ -29,8 +29,8 @@
         
         <ng-container *ngIf="post.userId.email === currentUserEmail">
           <div class="post-controls">
-            <button (click)="toggleShowEditPostField(post._id)">Редактирай</button>
-            <button>Изтрий</button>
+            <button (click)="toggleEditFormVisibility(post._id)">Редактирай</button>
+            <button (click)="toggleDeletePromptVisibility(post._id)">Изтрий</button>
           </div>
           <div *ngIf="isEditFormVisible(post._id)">
             <form [formGroup]="editForm" (ngSubmit)="editComment(theme._id, post._id)">
@@ -51,6 +51,12 @@
               </ng-container>
               <button>Потвърди</button>
             </form>
+          </div>
+
+          <div *ngIf="isDeletePromptVisible(post._id)">
+            <p>Сигурни ли сте, че искате да изтриете коментара?</p>
+            <button (click)="deleteComment(theme._id, post._id)">Да</button>
+            <button (click)="toggleDeletePromptVisibility(post._id)">Не</button>
           </div>
         </ng-container>
         
