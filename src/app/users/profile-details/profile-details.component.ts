@@ -13,30 +13,26 @@ export class ProfileDetailsComponent implements OnInit{
 
   profileDetails: ProfileDetails = {
     username: '',
-    tel: '',
     email: '',
   }
 
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: [''],
-    tel: ['']
   })
 
   constructor(private fb: FormBuilder, private userService: UserService) {}
 
   ngOnInit(): void {
-    const { username, tel, email } = this.userService.user!;
+    const { username, email } = this.userService.user!;
 
     this.profileDetails = {
       username, 
-      tel,
       email,
     }
 
     this.form.setValue({
       username,
-      tel,
       email,
     })
   }
@@ -51,9 +47,9 @@ export class ProfileDetailsComponent implements OnInit{
     }
 
     this.profileDetails = this.form.value as ProfileDetails
-    const { username, email, tel } = this.profileDetails
+    const { username, email } = this.profileDetails
 
-    this.userService.updateProfile(username, email, tel).subscribe(() => {
+    this.userService.updateProfile(username, email).subscribe(() => {
       this.onToggle()
     })
   }

@@ -21,6 +21,5 @@ export interface UserForAuth {
 
 export interface ProfileDetails {
     username: string,
-    email: string,
-    tel: string,
+    email: string
 }
