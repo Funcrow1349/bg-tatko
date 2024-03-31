@@ -4,6 +4,7 @@ import { ThemesService } from '../themes.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/users/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Post } from 'src/app/types/post';
 
 @Component({
   selector: 'app-current-theme',
@@ -84,7 +85,17 @@ export class CurrentThemeComponent {
   }
 
   editComment(themeId: string, postId: string) {
-    //
+    if(this.editForm.invalid) {
+      return
+    }
+
+    const { postText } = this.editForm.value
+
+    this.themesService.updatePost(themeId, postId, postText!).subscribe(() => {
+      this.ngOnInit()
+    })
+
+    this.toggleShowEditPostField(postId)
   }
 
 }

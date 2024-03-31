@@ -30,4 +30,12 @@ export class ThemesService {
     return this.http.post<Post>(`/api/themes/${id}`, { postText })
   }
 
+  updatePost(themeId: string, postId: string, postText: string) {
+    return this.http.put<Post>(`/api/themes/${themeId}/posts/${postId}`, {postText})
+  }
+
+  deletePost(themeId: string, postId: string) {
+    return this.http.delete(`/api/themes/${themeId}/posts/${postId}`)
+  }
+
 }
