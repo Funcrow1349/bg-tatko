@@ -29,8 +29,20 @@
         
         <ng-container *ngIf="post.userId.email === currentUserEmail">
           <div class="post-controls">
-            <button (click)="toggleShowEditPostField()">Редактирай</button>
+            <button (click)="toggleShowEditPostField(post._id)">Редактирай</button>
             <button>Изтрий</button>
+          </div>
+          <div *ngIf="isEditFormVisible(post._id)">
+            <form [formGroup]="editForm" (ngSubmit)="editComment(theme._id, post._id)">
+              <textarea
+                name="postText"
+                id="comment"
+                cols="30"
+                rows="10"
+                formControlName="postText"
+              ></textarea>
+              <button>Потвърди</button>
+            </form>
           </div>
         </ng-container>
         

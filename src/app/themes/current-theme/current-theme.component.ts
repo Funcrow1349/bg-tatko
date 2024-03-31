@@ -12,11 +12,15 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CurrentThemeComponent {
   showPostField: boolean = false;
-  showEditPostField: boolean = false;
+  editFormVisibility: { [postId: string]: boolean } = {};
 
   theme = {} as Theme;
 
   form = this.fb.group({
+    postText: ['', [Validators.required, Validators.minLength(10)]],
+  });
+
+  editForm = this.fb.group({
     postText: ['', [Validators.required, Validators.minLength(10)]],
   });
 
@@ -49,8 +53,19 @@ export class CurrentThemeComponent {
     this.showPostField = !this.showPostField
   }
 
-  toggleShowEditPostField(): void {
-    this.showEditPostField = !this.showEditPostField
+  toggleShowEditPostField(postId: string) {
+    this.editFormVisibility[postId] = !this.editFormVisibility[postId];
+
+    if (this.editFormVisibility[postId]) {
+      const postToUpdate = this.theme.posts.find(post => post._id === postId);
+      if (postToUpdate) {
+        this.editForm.get('postText')?.setValue(postToUpdate.text);
+      }
+    }
+  }
+
+  isEditFormVisible(postId: string): boolean {
+    return this.editFormVisibility[postId];
   }
 
   addComment(id: string): void {
@@ -66,6 +81,10 @@ export class CurrentThemeComponent {
 
     this.toggleShowPostField()
     this.form.reset()
+  }
+
+  editComment(themeId: string, postId: string) {
+    //
   }
 
 }
