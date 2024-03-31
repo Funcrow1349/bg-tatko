@@ -29,7 +29,7 @@
         
         <ng-container *ngIf="post.userId.email === currentUserEmail">
           <div class="post-controls">
-            <button>Редактирай</button>
+            <button (click)="toggleShowEditPostField()">Редактирай</button>
             <button>Изтрий</button>
           </div>
         </ng-container>

@@ -49,6 +49,10 @@ export class CurrentThemeComponent {
     this.showPostField = !this.showPostField
   }
 
+  toggleShowEditPostField(): void {
+    this.showEditPostField = !this.showEditPostField
+  }
+
   addComment(id: string): void {
     if (this.form.invalid) {
       return;
