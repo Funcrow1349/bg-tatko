@@ -1,8 +1,4 @@
 <div class="themes-wrapper">
-  <ng-container *ngIf="isLoggedIn && !newThemeService.newThemeField">
-    <button (click)="newThemeService.toggleNewTheme()">Нова тема</button>
-  </ng-container>
-
   <ng-container *ngIf="newThemeService.newThemeField">
     <app-new-theme />
   </ng-container>
@@ -10,7 +6,7 @@
   <ng-container *ngIf="!newThemeService.newThemeField">
     <div class="themes-header">
       <div class="theme-title">
-        <h4>Теми:</h4>
+        <h4>Заглавие</h4>
       </div>
       <div class="theme-details">
         <p>автор</p>
@@ -18,6 +14,11 @@
         <p>създадена</p>
       </div>
     </div>
+    <ng-container *ngIf="isLoggedIn && !newThemeService.newThemeField">
+      <div class="new-theme-btn-container">
+        <button class="new-theme-btn" (click)="newThemeService.toggleNewTheme()">+ Създай нова тема</button>
+      </div>
+    </ng-container>
     <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
       <div class="theme-title">
         <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
@@ -39,19 +40,19 @@
         </p>
       </div>
     </div>
-    <div>
-      <button
+    <div class="paginator">
+      <button class="arrow"
         (click)="onPageChange(currentPage - 1)"
         [disabled]="currentPage === 1"
       >
-        Предишна
+        <<
       </button>
-      <span>Страница {{ currentPage }} от {{ getTotalPages() }} </span>
-      <button
+      <span> стр. {{ currentPage }} от {{ getTotalPages() }} </span>
+      <button class="arrow"
         (click)="onPageChange(currentPage + 1)"
         [disabled]="currentPage === getTotalPages()"
       >
-        Следваща
+        >>
       </button>
     </div>
   </ng-container>

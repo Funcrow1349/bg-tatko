@@ -1,6 +1,9 @@
 footer {
     background: #F2E1AA;
-    /* margin-top: 1em; */
+    margin-top: 0.6em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0.5em 0;
     /* position: absolute;
     bottom: 0; */
     width: 100%;

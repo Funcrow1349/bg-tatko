@@ -15,11 +15,6 @@
     padding-left: 0.7em;
 }
 
-.theme-title h4:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
 .theme-title p {
     font-size: 0.7em;
     font-style: italic;
@@ -57,4 +52,36 @@
 .format-time span {
     padding: 0;
     margin: 0;
+}
+
+.new-theme-btn-container {
+    background-color: #F3DDD5;
+    text-align: left;
+}
+
+.new-theme-btn {
+    background-color: #F2E1AA;
+    color: #411211;
+    padding: 0.3em 1em;
+    margin-left: 0.5em;
+    border-radius: 10px;
+}
+
+.new-theme-btn:hover {
+    text-decoration: underline;
+}
+
+.paginator {
+    text-align: center;
+    background-color: #F3DDD5;
+    padding: 1em 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.arrow {
+    background-color: #F2E1AA;
+    color: #411211;
+    font-size: 0.7em;
+    border-radius: 10px;
 }
