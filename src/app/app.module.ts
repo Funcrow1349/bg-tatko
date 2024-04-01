@@ -12,7 +12,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticateComponent
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,

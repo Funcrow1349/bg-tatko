@@ -4,7 +4,6 @@ import { WelcomeScreenComponent } from './shared/welcome-screen/welcome-screen.c
 import { ErrorComponent } from './shared/error/error.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
-
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "/"},
   {path: "", component: WelcomeScreenComponent},
