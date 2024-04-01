@@ -16,7 +16,7 @@
 
   <div class="theme-container" *ngFor="let theme of themes">
     <div class="theme-title">
-      <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
+      <h4 [routerLink]="theme._id"><i class="fa-regular fa-bookmark"></i>{{ theme.themeName }}</h4>
       <p>Последна активност на {{theme.updatedAt | formatDate}} в {{ theme.updatedAt | formatHour }}</p>
     </div>
     <div class="theme-details">
