@@ -1,7 +1,9 @@
 .latest-activity-header p {
-    position: relative;
+    text-align: center;
+    font-size: 1.3em;
+    color: #411211;
     left: 12em;
-    margin: 0.5em 0;
+    margin: 0.7em 0 0.1em 0;
     padding: 0;
 }
 
