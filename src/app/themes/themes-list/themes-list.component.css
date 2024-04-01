@@ -19,6 +19,12 @@
     font-size: 0.7em;
     font-style: italic;
 }
+
+.theme-title h4:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .theme-details {
     display: flex;
     justify-content: space-around;
