@@ -19,7 +19,7 @@ h3 {
     background-color: #F3DDD5;
     display: flex;
     justify-content: space-evenly;
-    padding: 1.5em 0;
+    padding: 1.5em 20em;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -33,6 +33,10 @@ h3 {
 
 .profile-username, .profile-email {
     padding: 0.2em 0;
+}
+
+img {
+    border-radius: 50%;
 }
 
 span {
