@@ -33,7 +33,8 @@ export class NewThemeComponent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.newThemeService.toggleNewTheme()
+    if (this.newThemeService.newThemeField === true) {
+      this.newThemeService.toggleNewTheme()
+    }
   }
-
 }

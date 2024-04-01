@@ -5,10 +5,7 @@
       <h2>Регистрация:</h2>
 
       <!-- username -->
-      <p class="field field-icon">
-        <label for="username"
-          ><span></span
-        ></label>
+      <p class="field">
         <input
           class="input-error"
           type="text"
@@ -17,21 +14,18 @@
           placeholder="Потребителско име"
           formControlName="username"
         />
+        <ng-container *ngIf="form.get('username')?.touched">
+          <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+            Полето е задължително
+          </p>
+          <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+            Потребителското име трябва да съдържа поне 5 символа!
+          </p>
+        </ng-container>
       </p>
-      <ng-container *ngIf="form.get('username')?.touched">
-        <p class="error" *ngIf="form.get('username')?.errors?.['required']">
-          Полето е задължително!
-        </p>
-        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
-          Потребителското име трябва да съдържа поне 5 символа!
-        </p>
-      </ng-container>
 
       <!-- email -->
-      <p class="field field-icon">
-        <label for="email"
-          ><span></span
-        ></label>
+      <p class="field">
         <input
           type="email"
           name="email"
@@ -39,23 +33,22 @@
           placeholder="имейл"
           formControlName="email"
         />
+        <ng-container *ngIf="form.get('email')?.touched">
+          <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+            Полето е задължително
+          </p>
+          <p
+            class="error"
+            *ngIf="form.get('email')?.errors?.['emailValidator']"
+          >
+            Невалидна поща
+          </p>
+        </ng-container>
       </p>
-
-      <ng-container *ngIf="form.get('email')?.touched">
-        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
-          Полето е задължително!
-        </p>
-        <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
-          Невалиден имейл адрес!
-        </p>
-      </ng-container>
 
       <ng-container formGroupName="passGroup">
         <!-- password -->
-        <p class="field field-icon">
-          <label for="password"
-            ><span></span
-          ></label>
+        <p class="field">
           <input
             type="password"
             name="password"
@@ -63,19 +56,18 @@
             placeholder="парола"
             formControlName="password"
           />
+          <ng-container *ngIf="passGroup?.get('password')?.touched">
+            <p
+              class="error"
+              *ngIf="passGroup?.get('password')?.errors?.['minlength']"
+            >
+              Паролата трябва да съдържа поне 5 символа!
+            </p>
+          </ng-container>
         </p>
 
-        <ng-container *ngIf="passGroup?.get('password')?.touched">
-          <p class="error" *ngIf="passGroup?.get('password')?.errors?.['minlength']">
-            Паролата трябва да съдържа поне 5 символа!
-          </p>
-        </ng-container>
-
-        <!-- rePassword -->
-        <p class="field field-icon">
-          <label for="confirmPass"
-            ><span></span
-          ></label>
+        <!-- confirm password -->
+        <p class="field">
           <input
             type="password"
             name="confirmPass"
@@ -83,26 +75,27 @@
             placeholder="потвърди паролата"
             formControlName="confirmPass"
           />
+          <ng-container *ngIf="passGroup?.get('confirmPass')?.touched">
+            <p
+              class="error"
+              *ngIf="passGroup?.errors?.['matchPasswordsValidator'] ||
+              passGroup?.get('confirmPass')?.errors?.['required']"
+            >
+              Паролите не съвпадат! Моля, опитайте отново!
+            </p>
+          </ng-container>
         </p>
-
-        <ng-container *ngIf="passGroup?.get('confirmPass')?.touched">
-          <p
-            class="error"
-            *ngIf="passGroup?.errors?.['matchPasswordsValidator'] ||
-            passGroup?.get('confirmPass')?.errors?.['required']"
-          >
-            Паролите не съвпадат! Моля, опитайте отново!
-          </p>
-        </ng-container>
       </ng-container>
 
       <button
         [disabled]="form.invalid"
-        [style]="{ backgroundColor: form.invalid ? 'grey' : '#411211' }"
+        [style]="{
+          backgroundColor: form.invalid ? 'grey' : '#411211',
+          textDecoration: form.invalid ? 'none' : 'underline'
+        }"
       >
         Създай акаунт
       </button>
-
     </fieldset>
   </form>
 </div>

@@ -1,6 +1,6 @@
 <div class="wlc-login-container">
   <form class="login" [formGroup]="form" (ngSubmit)="login()">
-    <p>Имейл:</p>
+    <p>Поща:</p>
     <p>
       <label for="email"></label>
       <input
@@ -10,11 +10,12 @@
         placeholder="Напиши своя имейл"
         formControlName="email"
       />
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">Полето е задължително</p>
+        <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Невалидна поща</p>
+      </ng-container>
     </p>
-    <ng-container *ngIf="form.get('email')?.touched">
-      <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
-      <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not valid!</p>
-    </ng-container>
+    
     <p>Парола:</p>
     <p>
       <label for="password"></label>
@@ -25,12 +26,11 @@
         placeholder="******"
         formControlName="password"
       />
+      <ng-container *ngIf="form.get('password')?.touched">
+        <p class="error" *ngIf="form.get('password')?.errors?.['required']">Полето е задължително</p>
+        <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Паролата трябва да съдържа поне 5 символа!</p>
+      </ng-container>
     </p>
-
-    <ng-container *ngIf="form.get('password')?.touched">
-      <p class="error" *ngIf="form.get('password')?.errors?.['required']">Password is required!</p>
-      <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</p>
-    </ng-container>
 
     <button class="login-btn">
       <p>Вход</p>
