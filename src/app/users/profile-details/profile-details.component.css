@@ -1,0 +1,39 @@
+button {
+    background-color: rgba(53, 4, 4, 0.936);
+    color: white;
+    padding: 0.3em 1em;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+h3 {
+    color: rgba(53, 4, 4, 0.936);
+}
+
+.profile-container {
+    background-color: #F3DDD5;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.5em 0;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-username, .profile-email {
+    padding: 0.2em 0;
+}
+
+span {
+    text-decoration: underline;
+}
+
