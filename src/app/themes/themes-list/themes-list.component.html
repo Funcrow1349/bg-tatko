@@ -1,8 +1,8 @@
-<div class="themes-wrapper">
-  <ng-container id="new-theme-component" *ngIf="newThemeService.newThemeField">
-    <app-new-theme />
-  </ng-container>
+<ng-container id="new-theme-component" *ngIf="newThemeService.newThemeField">
+  <app-new-theme />
+</ng-container>
 
+<div class="themes-wrapper">
   <ng-container id="themes-list-wrapper" *ngIf="!newThemeService.newThemeField">
 
     <div class="themes-header">
