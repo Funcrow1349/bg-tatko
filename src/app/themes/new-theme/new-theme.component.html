@@ -1,23 +1,21 @@
 <div class="new-theme-container">
-  <div class="header-background">
-    <span>Нова тема</span>
-  </div>
+  <h3>Нова тема</h3>
 
   <form [formGroup]="form" (ngSubmit)="addTheme()">
     <div class="new-theme-title">
+      <label for="themeName">Заглавие:</label>
       <input
         type="text"
         name="themeName"
         id="themeName"
-        placeholder="заглавие на темата"
         formControlName="themeName"
       />
       <ng-container *ngIf="form.get('themeName')?.touched">
         <p class="error" *ngIf="form.get('themeName')?.errors?.['required']">
-          Theme name is required.
+          Полето е задължително!
         </p>
         <p class="error" *ngIf="form.get('themeName')?.errors?.['minlength']">
-          Theme name must be at least 5 characters long.
+          Заглавието трябва да съдържа поне 5 символа!
         </p>
       </ng-container>
     </div>
@@ -34,18 +32,24 @@
 
       <ng-container *ngIf="form.get('postText')?.touched">
         <p class="error" *ngIf="form.get('postText')?.errors?.['required']">
-          The field with your post is required.
+          Полето е задължително!
         </p>
         <p class="error" *ngIf="form.get('postText')?.errors?.['minlength']">
-          Post must be at least 10 characters long.
+          Коментарът трябва да съдържа поне 10 символа!
         </p>
       </ng-container>
     </div>
     <div class="new-theme-buttons">
-      <button class="cancel" (click)="newThemeService.toggleNewTheme()">
-        Отмени
+      <button (click)="newThemeService.toggleNewTheme()">Отмени</button>
+      <button
+        [disabled]="form.invalid"
+        [style]="{
+          backgroundColor: form.invalid ? 'grey' : 'green',
+          textDecoration: form.invalid ? 'none' : 'underline'
+        }"
+      >
+        Публикувай
       </button>
-      <button class="public">Публикувай</button>
     </div>
   </form>
 </div>

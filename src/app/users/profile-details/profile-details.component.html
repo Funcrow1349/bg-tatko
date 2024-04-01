@@ -1,7 +1,7 @@
 <!-- homepage -->
 <div class="profile-container">
   <div class="profile-img">
-    <img src="../../../assets/profile-image.jpeg" alt="">
+    <img src="../../../assets/profile-image.jpeg" alt="" />
   </div>
   <div class="profile-details">
     <ng-container *ngIf="editMode">
@@ -10,7 +10,6 @@
     <ng-container *ngIf="!editMode">
       <h3>Профил</h3>
     </ng-container>
-    
 
     <!-- READONLY MODE -->
     <ng-container *ngIf="!editMode">
@@ -58,7 +57,10 @@
         <button
           class="save-button"
           [disabled]="form.invalid"
-          [style]="{ backgroundColor: form.invalid ? 'grey' : 'green' }"
+          [style]="{
+            backgroundColor: form.invalid ? 'grey' : 'green',
+            textDecoration: form.invalid ? 'none' : 'underline'
+          }"
         >
           Запази
         </button>
