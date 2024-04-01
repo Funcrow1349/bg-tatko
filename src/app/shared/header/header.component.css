@@ -23,7 +23,18 @@
     padding-right: 2em;
 }
 
-.navigation li:hover {
+.navigation .link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navigation span {
+    font-style: italic;
+    font-weight: 100;
+    color: rgb(111, 105, 105);
+}
+
+.navigation span:hover {
     text-decoration: underline;
     cursor: pointer;
 }

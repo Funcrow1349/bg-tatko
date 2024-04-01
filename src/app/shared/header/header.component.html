@@ -7,15 +7,15 @@
         <div class="main-nav">
             <div class="nav-container-left">
                 <ul class="navigation">
-                    <li routerLink="/">Начало</li>
-                    <li routerLink="/themes">Форум</li>
+                    <li class="link" routerLink="/">Начало</li>
+                    <li class="link" routerLink="/themes">Форум</li>
                 </ul>
             </div>
     
             <div class="nav-container-right" *ngIf="isLoggedIn">
                 <ul class="navigation">
-                    <li routerLink="/profile">Здравей, {{username}}!</li>
-                    <li (click)="logout()">Изход</li>
+                    <li>Здравей, <span routerLink="/profile">{{username}}</span> !</li>
+                    <li class="link" (click)="logout()">Изход</li>
                 </ul>
             </div>
         </div>
