@@ -1,0 +1,9 @@
+.new-theme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F3DDD5;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
