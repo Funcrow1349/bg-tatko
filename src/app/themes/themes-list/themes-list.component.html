@@ -4,6 +4,7 @@
   </ng-container>
 
   <ng-container id="themes-list-wrapper" *ngIf="!newThemeService.newThemeField">
+
     <div class="themes-header">
       <div class="theme-header-title">
         <h4>Заглавие</h4>
@@ -14,12 +15,14 @@
         <p>създадена</p>
       </div>
     </div>
+
     <ng-container *ngIf="isLoggedIn && !newThemeService.newThemeField">
       <div class="new-theme-btn-container">
         <button class="new-theme-btn" (click)="newThemeService.toggleNewTheme()">
           <i class="fa-solid fa-circle-plus"></i> Нова тема</button>
       </div>
     </ng-container>
+
     <div class="theme-container" *ngFor="let theme of getPaginatedThemes()">
       <div class="theme-title">
         <h4 [routerLink]="theme._id"> {{ theme.themeName }}</h4>
@@ -41,6 +44,7 @@
         </p>
       </div>
     </div>
+
     <div class="paginator">
       <button class="arrow"
         (click)="onPageChange(currentPage - 1)"
@@ -56,5 +60,6 @@
         >>
       </button>
     </div>
+
   </ng-container>
 </div>
