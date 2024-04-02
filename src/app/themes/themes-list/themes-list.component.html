@@ -27,8 +27,9 @@
       <div class="theme-title">
         <h4 [routerLink]="theme._id"> {{ theme.themeName }}</h4>
         <p>
-          Последна активност на {{ theme.updatedAt | formatDate }} в
-          {{ theme.updatedAt | formatHour }}
+          Последна активност
+          <i class="fa-solid fa-calendar-days"></i> {{ theme.updatedAt | formatDate }}
+           <i class="fa-regular fa-clock"></i> {{ theme.updatedAt | formatHour }}
         </p>
       </div>
       <div class="theme-details">
@@ -39,8 +40,8 @@
           <span>{{ theme.posts.length }}</span>
         </p>
         <p class="format-time">
-          <span>{{ theme.created_at | formatDate }}</span>
-          <span>{{ theme.created_at | formatHour }}</span>
+          <span><i class="fa-solid fa-calendar-days"></i>{{ theme.created_at | formatDate }}</span>
+          <span><i class="fa-regular fa-clock"></i>{{ theme.created_at | formatHour }}</span>
         </p>
       </div>
     </div>

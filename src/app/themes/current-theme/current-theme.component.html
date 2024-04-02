@@ -15,10 +15,10 @@
       <div class="comment-main">
         <header class="header">
           <p class="time-span">
-            публикуван на
+            публикуван
             <span
-              >{{ post.created_at | formatDate }} в
-              {{ post.created_at | formatHour }}</span
+              ><i class="fa-solid fa-calendar-days"></i> {{ post.created_at | formatDate }}
+              <i class="fa-regular fa-clock"></i> {{ post.created_at | formatHour }}</span
             >
           </p>
           <hr>
@@ -31,7 +31,7 @@
             <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
               <span>
                 последно редактиран на {{ post.updatedAt | formatDate }} в
-                {{ post.updatedAt | formatHour }}
+                <i class="fa-regular fa-clock"></i>{{ post.updatedAt | formatHour }}
               </span>
             </p>
             <hr>

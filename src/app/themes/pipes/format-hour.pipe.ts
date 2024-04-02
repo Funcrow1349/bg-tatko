@@ -7,6 +7,6 @@ import * as moment from 'moment';
 
 export class FormatHourPipe implements PipeTransform {
   transform(date: string, ...args: unknown[]): unknown {
-    return moment(date).format("HH:mm:ss ч.")
+    return moment(date).format("HH:mmч.")
   }
 }
