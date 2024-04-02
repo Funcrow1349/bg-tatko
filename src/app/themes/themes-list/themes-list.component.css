@@ -71,10 +71,11 @@
     padding: 0.3em 1em;
     margin-left: 0.5em;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .new-theme-btn:hover {
-    background-color: #f6b84d;;
+    background-color: #f6d499;;
 }
 
 .paginator {
@@ -90,4 +91,5 @@
     color: #411211;
     font-size: 0.7em;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }

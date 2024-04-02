@@ -30,7 +30,8 @@
             </p>
             <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
               <span>
-                последно редактиран на {{ post.updatedAt | formatDate }} в
+                последно редактиран
+                <i class="fa-solid fa-calendar-days"></i>{{ post.updatedAt | formatDate }}
                 <i class="fa-regular fa-clock"></i>{{ post.updatedAt | formatHour }}
               </span>
             </p>
@@ -63,16 +64,18 @@
                     class="error"
                     *ngIf="editForm.get('postText')?.errors?.['required']"
                   >
-                    The field with your post is required.
+                    Полето е задължително!
                   </p>
                   <p
                     class="error"
                     *ngIf="editForm.get('postText')?.errors?.['minlength']"
                   >
-                    Post must be at least 10 characters long.
+                    Коментарът трябва да съдържа поне 10 символа!
                   </p>
                 </ng-container>
-                <button>Потвърди</button>
+                <button class="confirm-changes"
+                [disabled]="editForm.invalid"
+                >Потвърди</button>
               </form>
             </div>
 

@@ -75,6 +75,10 @@ export class CurrentThemeComponent {
   toggleEditFormVisibility(postId: string) {
     this.editFormVisibility[postId] = !this.editFormVisibility[postId];
 
+    if (this.deletePromptVisibility[postId]) {
+      this.deletePromptVisibility[postId] = false
+    }
+
     if (this.editFormVisibility[postId]) {
       const postToUpdate = this.theme.posts.find(post => post._id === postId);
       if (postToUpdate) {
@@ -89,6 +93,10 @@ export class CurrentThemeComponent {
 
   toggleDeletePromptVisibility(postId: string) {
     this.deletePromptVisibility[postId] = !this.deletePromptVisibility[postId]
+
+    if (this.editFormVisibility[postId]) {
+      this.editFormVisibility[postId] = false
+    }
   }
 
   isDeletePromptVisible(postId: string) {
