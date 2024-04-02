@@ -9,7 +9,6 @@ import {
 import { Observable, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Router } from '@angular/router';
-import { ErrorService } from './shared/error/error.service';
 
 const { apiUrl } = environment
 
@@ -17,7 +16,7 @@ const { apiUrl } = environment
 export class AppInterceptor implements HttpInterceptor {
   API = '/api'
 
-  constructor(private errorService: ErrorService, private router: Router) {}
+  constructor(private router: Router) {}
 
   intercept(
     req: HttpRequest<any>, 
@@ -35,8 +34,7 @@ export class AppInterceptor implements HttpInterceptor {
           if (err.status === 401) {
             this.router.navigate(['/'])
           } else {
-            this.errorService.setError(err);
-            this.router.navigate(['/error'])
+            this.router.navigate(['/'])
           }
 
           return [err]

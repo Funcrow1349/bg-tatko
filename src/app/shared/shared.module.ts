@@ -7,8 +7,6 @@ import { UsersModule } from '../users/users.module';
 import { ThemesModule } from '../themes/themes.module';
 import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
-import { ErrorComponent } from './error/error.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -16,8 +14,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HeaderComponent, 
     FooterComponent, 
     WelcomeScreenComponent, 
-    ErrorComponent,
-    NotFoundComponent
   ],
   imports: [
     CommonModule, 
@@ -29,8 +25,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
   exports: [
     HeaderComponent, 
     FooterComponent, 
-    ErrorComponent,
-    NotFoundComponent
   ],
 })
 export class SharedModule {}
