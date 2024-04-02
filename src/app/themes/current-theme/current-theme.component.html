@@ -118,7 +118,7 @@
       </button>
     </div>
 
-    <button *ngIf="isLoggedIn" (click)="toggleShowPostField()">
+    <button class="new-comment-btn" *ngIf="isLoggedIn" (click)="toggleShowPostField()">
       <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
       <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>
       Публикувай отговор:

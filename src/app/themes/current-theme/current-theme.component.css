@@ -154,3 +154,21 @@ textarea {
 .red {
   background-color: red;
 }
+
+.new-comment-btn {
+  background-color: #F2E1AA;
+  color: #411211;
+  padding: 0.3em 1em;
+  margin: 0 1em 1em 1em;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.new-comment-btn:hover {
+  background-color: #f6d499;;
+}
+
+.answer-comment textarea {
+  margin: 0 1em;
+  width: 97%;
+}

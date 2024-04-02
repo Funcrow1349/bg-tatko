@@ -47,9 +47,12 @@ export class CurrentThemeComponent {
   }
 
   getPaginatedComments(): Post[] {
-    const startIndex = (this.currentPage - 1) * this.commentsPerPage;
-    const endIndex = startIndex + this.commentsPerPage;
-    return this.theme.posts.slice(startIndex, endIndex);
+    if (this.theme.posts) {
+      const startIndex = (this.currentPage - 1) * this.commentsPerPage;
+      const endIndex = startIndex + this.commentsPerPage;
+      return this.theme.posts.slice(startIndex, endIndex);
+    }
+    return [];
   }
 
   onPageChange(pageNumber: number): void {
@@ -57,7 +60,10 @@ export class CurrentThemeComponent {
   }
 
   getTotalPages(): number {
-    return Math.ceil(this.theme.posts.length / this.commentsPerPage);
+    if (this.theme.posts) {
+      return Math.ceil(this.theme.posts.length / this.commentsPerPage);
+    }
+    return 0;
   }
 
   get isLoggedIn(): boolean {
