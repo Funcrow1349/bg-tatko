@@ -10,18 +10,20 @@
     <div class="theme-comment" *ngFor="let post of theme.posts">
       <div class="author-field">
         <p>{{ post.userId.username }}</p>
-        <img src="../../../assets/profile-image.jpeg" alt="">
+        <img src="../../../assets/profile-image.jpeg" alt="" />
       </div>
       <div class="comment-main">
         <header class="header">
           <p class="time-span">
             публикуван
             <span
-              ><i class="fa-solid fa-calendar-days"></i> {{ post.created_at | formatDate }}
-              <i class="fa-regular fa-clock"></i> {{ post.created_at | formatHour }}</span
+              ><i class="fa-solid fa-calendar-days"></i>
+              {{ post.created_at | formatDate }}
+              <i class="fa-regular fa-clock"></i>
+              {{ post.created_at | formatHour }}</span
             >
           </p>
-          <hr>
+          <hr />
         </header>
         <div class="comment">
           <div class="comment-info">
@@ -31,20 +33,24 @@
             <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
               <span>
                 последно редактиран
-                <i class="fa-solid fa-calendar-days"></i>{{ post.updatedAt | formatDate }}
-                <i class="fa-regular fa-clock"></i>{{ post.updatedAt | formatHour }}
+                <i class="fa-solid fa-calendar-days"></i
+                >{{ post.updatedAt | formatDate }}
+                <i class="fa-regular fa-clock"></i
+                >{{ post.updatedAt | formatHour }}
               </span>
             </p>
-            <hr>
+            <hr />
           </div>
 
           <ng-container *ngIf="post.userId.email === currentUserEmail">
             <div class="post-controls">
               <button (click)="toggleEditFormVisibility(post._id)">
-                Редактирай
+                <i class="fa-solid fa-pencil"></i> Редактирай
               </button>
               <button (click)="toggleDeletePromptVisibility(post._id)">
-                Изтрий
+                <span class="delete">
+                  <i class="fa-solid fa-xmark"></i>
+                </span> Изтрий
               </button>
             </div>
             <div *ngIf="isEditFormVisible(post._id)">
@@ -73,18 +79,21 @@
                     Коментарът трябва да съдържа поне 10 символа!
                   </p>
                 </ng-container>
-                <button class="confirm-changes"
-                [disabled]="editForm.invalid"
-                >Потвърди</button>
+                <button class="confirm-changes" [disabled]="editForm.invalid">
+                  Потвърди
+                </button>
               </form>
             </div>
 
-            <div *ngIf="isDeletePromptVisible(post._id)">
+            <div *ngIf="isDeletePromptVisible(post._id)" class="delete-prompt">
               <p>Сигурни ли сте, че искате да изтриете коментара?</p>
-              <button (click)="deleteComment(theme._id, post._id)">Да</button>
-              <button (click)="toggleDeletePromptVisibility(post._id)">
-                Не
-              </button>
+              <div class="delete-prompt-btns">
+                <button class="green" (click)="toggleDeletePromptVisibility(post._id)">
+                  Не
+                </button>
+                <button class="red" (click)="deleteComment(theme._id, post._id)">Да</button>
+                
+              </div>
             </div>
           </ng-container>
         </div>
@@ -92,14 +101,16 @@
     </div>
 
     <div class="paginator">
-      <button class="arrow"
+      <button
+        class="arrow"
         (click)="onPageChange(currentPage - 1)"
         [disabled]="currentPage === 1"
       >
         <<
       </button>
       <span> стр. {{ currentPage }} от {{ getTotalPages() }} </span>
-      <button class="arrow"
+      <button
+        class="arrow"
         (click)="onPageChange(currentPage + 1)"
         [disabled]="currentPage === getTotalPages()"
       >
