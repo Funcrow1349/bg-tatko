@@ -80,3 +80,18 @@ hr {
     margin: 0 1em;
     padding: 0;
 }
+
+.paginator {
+    text-align: center;
+    background-color: #F3DDD5;
+    margin: 1em 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .arrow {
+    background-color: #F2E1AA;
+    color: #411211;
+    font-size: 0.7em;
+    border-radius: 10px;
+  }

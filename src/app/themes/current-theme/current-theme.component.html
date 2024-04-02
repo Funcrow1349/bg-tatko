@@ -88,6 +88,22 @@
       </div>
     </div>
 
+    <div class="paginator">
+      <button class="arrow"
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <<
+      </button>
+      <span> стр. {{ currentPage }} от {{ getTotalPages() }} </span>
+      <button class="arrow"
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage === getTotalPages()"
+      >
+        >>
+      </button>
+    </div>
+
     <button *ngIf="isLoggedIn" (click)="toggleShowPostField()">
       <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
       <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>

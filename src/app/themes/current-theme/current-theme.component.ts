@@ -4,7 +4,7 @@ import { ThemesService } from '../themes.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/users/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { User } from 'src/app/types/user';
+import { Post } from 'src/app/types/post';
 
 @Component({
   selector: 'app-current-theme',
@@ -15,6 +15,8 @@ export class CurrentThemeComponent {
   showPostField: boolean = false;
   editFormVisibility: { [postId: string]: boolean } = {};
   deletePromptVisibility: { [postId: string]: boolean } = {};
+  currentPage: number = 1;
+  commentsPerPage: number = 10;
 
   theme = {} as Theme;
   
@@ -42,6 +44,20 @@ export class CurrentThemeComponent {
       });
     });
     
+  }
+
+  getPaginatedComments(): Post[] {
+    const startIndex = (this.currentPage - 1) * this.commentsPerPage;
+    const endIndex = startIndex + this.commentsPerPage;
+    return this.theme.posts.slice(startIndex, endIndex);
+  }
+
+  onPageChange(pageNumber: number): void {
+    this.currentPage = pageNumber;
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.theme.posts.length / this.commentsPerPage);
   }
 
   get isLoggedIn(): boolean {
