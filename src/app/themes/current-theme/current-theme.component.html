@@ -1,24 +1,32 @@
 <div class="current-theme-container">
   <div class="theme-content">
-    
     <div class="theme-name">
       <h2>{{ theme.themeName }}</h2>
-      <p>
-        създадена на {{ theme.created_at | formatDate}}
+      <p class="time-span">
+        <span>създадена на {{ theme.created_at | formatDate }}</span>
       </p>
     </div>
 
     <div class="theme-comment" *ngFor="let post of theme.posts">
       <header class="header">
-        <p>
-          <span>{{ post.userId.username }}</span> публикува на
-          <time>{{ post.created_at }}</time>
+        <p class="time-span">
+          <span>{{ post.userId.username }}</span> публикуван на
+          <span
+            >{{ post.created_at | formatDate }} в
+            {{ post.created_at | formatHour }}</span
+          >
         </p>
       </header>
       <div class="comment-main">
         <div class="post-content">
           <p>
             {{ post.text }}
+          </p>
+          <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
+            <span>
+              редактиран: {{ post.updatedAt | formatDate }} в
+              {{ post.updatedAt | formatHour }}
+            </span>
           </p>
         </div>
 
@@ -73,7 +81,8 @@
     <button (click)="toggleShowPostField()">
       <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
       <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>
-      Публикувай отговор:</button>
+      Публикувай отговор:
+    </button>
 
     <div class="answer-comment" *ngIf="isLoggedIn && showPostField">
       <div class="answer">
