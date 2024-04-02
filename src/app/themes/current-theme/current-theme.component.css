@@ -7,6 +7,11 @@
 .theme-name {
     text-align: left;
     padding: 0.8em 0 0.8em 2em;
+    background-color: #411211;
+    color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 1em;
 }
 
 .theme-name * {
@@ -20,6 +25,58 @@
 }
 
 .theme-comment {
-    border: 4px double #411211;
+    border: 1px solid #411211;
+    border-radius: 5px;
     margin-top: 2px;
+    display: flex;
+    margin: 10px 1em 0 1em;
+    background-color: #F2E1AA;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.author-field {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.author-field p {
+    margin-top: 0.5em;
+}
+
+img {
+    width: 110px;
+    margin: 0 1em 1em 1em;
+    border-radius: 50%;
+    border: 2px solid #411211;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.comment-main {
+    width: 100%;
+    margin: 1em 1em 1em 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.comment-text {
+    min-height: 100px;
+}
+
+hr {
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+.post-controls button {
+    border: none;
+    background: none;
+    font-size: 0.8em;
+    font-weight: 900;
+    margin: 0 1em;
+    padding: 0;
 }

@@ -8,77 +8,87 @@
     </div>
 
     <div class="theme-comment" *ngFor="let post of theme.posts">
-      <header class="header">
-        <p class="time-span">
-          <span>{{ post.userId.username }}</span> публикуван на
-          <span
-            >{{ post.created_at | formatDate }} в
-            {{ post.created_at | formatHour }}</span
-          >
-        </p>
-      </header>
+      <div class="author-field">
+        <p>{{ post.userId.username }}</p>
+        <img src="../../../assets/profile-image.jpeg" alt="">
+      </div>
       <div class="comment-main">
-        <div class="post-content">
-          <p>
-            {{ post.text }}
-          </p>
-          <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
-            <span>
-              редактиран: {{ post.updatedAt | formatDate }} в
-              {{ post.updatedAt | formatHour }}
-            </span>
-          </p>
-        </div>
-
-        <ng-container *ngIf="post.userId.email === currentUserEmail">
-          <div class="post-controls">
-            <button (click)="toggleEditFormVisibility(post._id)">
-              Редактирай
-            </button>
-            <button (click)="toggleDeletePromptVisibility(post._id)">
-              Изтрий
-            </button>
-          </div>
-          <div *ngIf="isEditFormVisible(post._id)">
-            <form
-              [formGroup]="editForm"
-              (ngSubmit)="editComment(theme._id, post._id)"
+        <header class="header">
+          <p class="time-span">
+            публикуван на
+            <span
+              >{{ post.created_at | formatDate }} в
+              {{ post.created_at | formatHour }}</span
             >
-              <textarea
-                name="postText"
-                id="comment"
-                cols="30"
-                rows="10"
-                formControlName="postText"
-              ></textarea>
-              <ng-container *ngIf="editForm.get('postText')?.touched">
-                <p
-                  class="error"
-                  *ngIf="editForm.get('postText')?.errors?.['required']"
-                >
-                  The field with your post is required.
-                </p>
-                <p
-                  class="error"
-                  *ngIf="editForm.get('postText')?.errors?.['minlength']"
-                >
-                  Post must be at least 10 characters long.
-                </p>
-              </ng-container>
-              <button>Потвърди</button>
-            </form>
+          </p>
+          <hr>
+        </header>
+        <div class="comment">
+          <div class="comment-info">
+            <p class="comment-text">
+              {{ post.text }}
+            </p>
+            <p class="time-span" *ngIf="post.created_at !== post.updatedAt">
+              <span>
+                последно редактиран на {{ post.updatedAt | formatDate }} в
+                {{ post.updatedAt | formatHour }}
+              </span>
+            </p>
+            <hr>
           </div>
 
-          <div *ngIf="isDeletePromptVisible(post._id)">
-            <p>Сигурни ли сте, че искате да изтриете коментара?</p>
-            <button (click)="deleteComment(theme._id, post._id)">Да</button>
-            <button (click)="toggleDeletePromptVisibility(post._id)">Не</button>
-          </div>
-        </ng-container>
+          <ng-container *ngIf="post.userId.email === currentUserEmail">
+            <div class="post-controls">
+              <button (click)="toggleEditFormVisibility(post._id)">
+                Редактирай
+              </button>
+              <button (click)="toggleDeletePromptVisibility(post._id)">
+                Изтрий
+              </button>
+            </div>
+            <div *ngIf="isEditFormVisible(post._id)">
+              <form
+                [formGroup]="editForm"
+                (ngSubmit)="editComment(theme._id, post._id)"
+              >
+                <textarea
+                  name="postText"
+                  id="comment"
+                  cols="30"
+                  rows="10"
+                  formControlName="postText"
+                ></textarea>
+                <ng-container *ngIf="editForm.get('postText')?.touched">
+                  <p
+                    class="error"
+                    *ngIf="editForm.get('postText')?.errors?.['required']"
+                  >
+                    The field with your post is required.
+                  </p>
+                  <p
+                    class="error"
+                    *ngIf="editForm.get('postText')?.errors?.['minlength']"
+                  >
+                    Post must be at least 10 characters long.
+                  </p>
+                </ng-container>
+                <button>Потвърди</button>
+              </form>
+            </div>
+
+            <div *ngIf="isDeletePromptVisible(post._id)">
+              <p>Сигурни ли сте, че искате да изтриете коментара?</p>
+              <button (click)="deleteComment(theme._id, post._id)">Да</button>
+              <button (click)="toggleDeletePromptVisibility(post._id)">
+                Не
+              </button>
+            </div>
+          </ng-container>
+        </div>
       </div>
     </div>
 
-    <button (click)="toggleShowPostField()">
+    <button *ngIf="isLoggedIn" (click)="toggleShowPostField()">
       <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
       <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>
       Публикувай отговор:
