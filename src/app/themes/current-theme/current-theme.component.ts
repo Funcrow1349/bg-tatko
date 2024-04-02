@@ -4,6 +4,7 @@ import { ThemesService } from '../themes.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/users/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-current-theme',
@@ -16,7 +17,7 @@ export class CurrentThemeComponent {
   deletePromptVisibility: { [postId: string]: boolean } = {};
 
   theme = {} as Theme;
-
+  
   form = this.fb.group({
     postText: ['', [Validators.required, Validators.minLength(10)]],
   });
@@ -40,6 +41,7 @@ export class CurrentThemeComponent {
         this.theme = theme;
       });
     });
+    
   }
 
   get isLoggedIn(): boolean {

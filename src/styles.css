@@ -1,12 +1,8 @@
-/* Reset */
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-/* Typography */
 
 html {
   font: 18px/1.5 Verdana, sans-serif;
@@ -35,28 +31,15 @@ h6 {
 /* Layout */
 body {
   margin: 0;
-}
-
-.site {
-  max-width: 50em;
-  margin: 0 auto;
-}
-
-/* Global Styles */
-
-body {
   max-width: 1366px;
   margin: auto;
   position: relative;
   min-height: 100vh;
 }
 
-span {
-  font-weight: bold;
-}
-
-button:hover {
-  cursor: pointer;
+.site {
+  max-width: 50em;
+  margin: 0 auto;
 }
 
 p.error {

@@ -1,22 +1,17 @@
-<div class="container">
-  <!-- theme content  -->
+<div class="current-theme-container">
   <div class="theme-content">
-    <!-- theme-title  -->
-    <div class="theme-title">
-      <div class="theme-name-wrapper">
-        <div class="theme-name">
-          <h2>{{ theme.themeName }}</h2>
-          <p>
-            Date: <time>{{ theme.created_at }}</time>
-          </p>
-        </div>
-      </div>
+    
+    <div class="theme-name">
+      <h2>{{ theme.themeName }}</h2>
+      <p>
+        създадена на {{ theme.created_at | formatDate}}
+      </p>
     </div>
-    <!-- comment  -->
-    <div class="comment" *ngFor="let post of theme.posts">
+
+    <div class="theme-comment" *ngFor="let post of theme.posts">
       <header class="header">
         <p>
-          <span>{{ post.userId.username }}</span> posted on
+          <span>{{ post.userId.username }}</span> публикува на
           <time>{{ post.created_at }}</time>
         </p>
       </header>
@@ -26,14 +21,21 @@
             {{ post.text }}
           </p>
         </div>
-        
+
         <ng-container *ngIf="post.userId.email === currentUserEmail">
           <div class="post-controls">
-            <button (click)="toggleEditFormVisibility(post._id)">Редактирай</button>
-            <button (click)="toggleDeletePromptVisibility(post._id)">Изтрий</button>
+            <button (click)="toggleEditFormVisibility(post._id)">
+              Редактирай
+            </button>
+            <button (click)="toggleDeletePromptVisibility(post._id)">
+              Изтрий
+            </button>
           </div>
           <div *ngIf="isEditFormVisible(post._id)">
-            <form [formGroup]="editForm" (ngSubmit)="editComment(theme._id, post._id)">
+            <form
+              [formGroup]="editForm"
+              (ngSubmit)="editComment(theme._id, post._id)"
+            >
               <textarea
                 name="postText"
                 id="comment"
@@ -42,10 +44,16 @@
                 formControlName="postText"
               ></textarea>
               <ng-container *ngIf="editForm.get('postText')?.touched">
-                <p class="error" *ngIf="editForm.get('postText')?.errors?.['required']">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('postText')?.errors?.['required']"
+                >
                   The field with your post is required.
                 </p>
-                <p class="error" *ngIf="editForm.get('postText')?.errors?.['minlength']">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('postText')?.errors?.['minlength']"
+                >
                   Post must be at least 10 characters long.
                 </p>
               </ng-container>
@@ -59,11 +67,13 @@
             <button (click)="toggleDeletePromptVisibility(post._id)">Не</button>
           </div>
         </ng-container>
-        
       </div>
     </div>
 
-    <button (click)="toggleShowPostField()">Публикувай отговор:</button>
+    <button (click)="toggleShowPostField()">
+      <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
+      <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>
+      Публикувай отговор:</button>
 
     <div class="answer-comment" *ngIf="isLoggedIn && showPostField">
       <div class="answer">
@@ -80,7 +90,10 @@
             <p class="error" *ngIf="form.get('postText')?.errors?.['required']">
               The field with your post is required.
             </p>
-            <p class="error" *ngIf="form.get('postText')?.errors?.['minlength']">
+            <p
+              class="error"
+              *ngIf="form.get('postText')?.errors?.['minlength']"
+            >
               Post must be at least 10 characters long.
             </p>
           </ng-container>
