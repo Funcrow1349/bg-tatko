@@ -11,11 +11,15 @@
         formControlName="email"
       />
       <ng-container *ngIf="form.get('email')?.touched">
-        <p class="error" *ngIf="form.get('email')?.errors?.['required']">Полето е задължително</p>
-        <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Невалидна поща</p>
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Полето е задължително
+        </p>
+        <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
+          Невалидна поща
+        </p>
       </ng-container>
     </p>
-    
+
     <p>Парола:</p>
     <p>
       <label for="password"></label>
@@ -27,12 +31,23 @@
         formControlName="password"
       />
       <ng-container *ngIf="form.get('password')?.touched">
-        <p class="error" *ngIf="form.get('password')?.errors?.['required']">Полето е задължително</p>
-        <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Паролата трябва да съдържа поне 5 символа!</p>
+        <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+          Полето е задължително!
+        </p>
+        <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">
+          Паролата трябва да съдържа поне 5 символа!
+        </p>
       </ng-container>
     </p>
 
-    <button class="login-btn">
+    <button
+      class="login-btn"
+      [disabled]="form.invalid"
+      [style]="{
+        backgroundColor: form.invalid ? 'grey' : '',
+        textDecoration: form.invalid ? 'none' : ''
+      }"
+    >
       <p>Вход</p>
     </button>
   </form>
