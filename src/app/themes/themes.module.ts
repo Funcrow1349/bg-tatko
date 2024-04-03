@@ -9,6 +9,7 @@ import { ThemesRoutingModule } from './themes-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormatHourPipe } from './pipes/format-hour.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
+import { SlicePipe } from './pipes/slice.pipe';
 import { ForumStatsComponent } from './forum-stats/forum-stats.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         DeleteCommentComponent,
         FormatHourPipe,
         FormatDatePipe,
+        SlicePipe,
         ForumStatsComponent,
     ],
     exports: [

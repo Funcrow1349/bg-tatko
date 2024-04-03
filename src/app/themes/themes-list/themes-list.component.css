@@ -18,6 +18,7 @@
 .theme-title p {
     font-size: 0.7em;
     font-style: italic;
+    margin-left: 2em;
 }
 
 .theme-title h4:hover {
@@ -69,8 +70,10 @@
     background-color: #F2E1AA;
     color: #411211;
     padding: 0.3em 1em;
-    margin-left: 0.5em;
+    margin-left: 1em;
+    margin-top: 0.7em;
     border-radius: 10px;
+    border: none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 

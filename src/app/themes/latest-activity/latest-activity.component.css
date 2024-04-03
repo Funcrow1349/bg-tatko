@@ -24,11 +24,6 @@
     color: white;
 }
 
-
-.theme-title * {
-    padding-left: 0.7em;
-}
-
 .theme-title h4:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -37,7 +32,9 @@
 .theme-title p {
     font-size: 0.7em;
     font-style: italic;
+    margin-left: 2em;
 }
+
 .theme-details {
     display: flex;
     justify-content: space-around;

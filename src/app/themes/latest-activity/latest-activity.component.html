@@ -16,7 +16,7 @@
 
   <div class="theme-container" *ngFor="let theme of themes">
     <div class="theme-title">
-      <h4 [routerLink]="theme._id">{{ theme.themeName }}</h4>
+      <h4 [routerLink]="theme._id">{{ theme.themeName | slice}}</h4>
       <p>Последна активност
         <i class="fa-solid fa-calendar-days"></i> {{theme.updatedAt | formatDate}}
          <i class="fa-regular fa-clock"></i> {{ theme.updatedAt | formatHour }}</p>
