@@ -19,6 +19,7 @@ export class CurrentThemeComponent {
   commentsPerPage: number = 10;
 
   theme = {} as Theme;
+  themePosts: Post[] =[]
   
   form = this.fb.group({
     postText: ['', [Validators.required, Validators.minLength(10)]],
@@ -41,16 +42,17 @@ export class CurrentThemeComponent {
 
       this.themesService.getTheme(id).subscribe((theme) => {
         this.theme = theme;
+        this.themePosts = theme.posts
       });
     });
     
   }
 
   getPaginatedComments(): Post[] {
-    if (this.theme.posts) {
+    if (this.themePosts) {
       const startIndex = (this.currentPage - 1) * this.commentsPerPage;
       const endIndex = startIndex + this.commentsPerPage;
-      return this.theme.posts.slice(startIndex, endIndex);
+      return this.themePosts.slice(startIndex, endIndex);
     }
     return [];
   }
@@ -60,8 +62,8 @@ export class CurrentThemeComponent {
   }
 
   getTotalPages(): number {
-    if (this.theme.posts) {
-      return Math.ceil(this.theme.posts.length / this.commentsPerPage);
+    if (this.themePosts) {
+      return Math.ceil(this.themePosts.length / this.commentsPerPage);
     }
     return 0;
   }

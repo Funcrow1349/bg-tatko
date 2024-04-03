@@ -7,7 +7,7 @@
       </p>
     </div>
 
-    <div class="theme-comment" *ngFor="let post of theme.posts">
+    <div class="theme-comment" *ngFor="let post of getPaginatedComments()">
       <div class="author-field">
         <p>{{ post.userId.username }}</p>
         <img src="../../../assets/profile-image.jpeg" alt="" />
