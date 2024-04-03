@@ -36,29 +36,15 @@ form div, form p{
     padding: 0.35em;
 }
 
-/* button+button {
-    margin-left: 1rem;
-}
-
-.new-theme-buttons {
-    margin-top: 1em;
-    text-align: center;
-}
-
-.new-theme-buttons button {
-    padding: 0.4em 1.5em;
-    border: 1px solid #333333;
-    border-radius: 0.3em;
-} */
-
 button {
     background-color: rgba(53, 4, 4, 0.936);
     color: white;
     padding: 0.3em 1em;
     margin: 1.5em 0.5em;
+    border: none;
+    border-radius: 5px;
 }
 
 button:hover {
-    cursor: pointer;
     text-decoration: underline;
 }
