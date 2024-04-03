@@ -39,6 +39,7 @@
     justify-content: space-between;
     background-color: #F3DDD5;
     border-bottom: 1px solid #411211;
+    color: #411211;
 }
 
 .theme-details p {
@@ -83,6 +84,7 @@
 .paginator {
     text-align: center;
     background-color: #F3DDD5;
+    color: #411211;
     padding: 1em 0;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;

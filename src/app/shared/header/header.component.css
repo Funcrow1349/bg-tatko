@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgba(241, 222, 162, 0.918);
+    color: #411211;
     padding: 0.5em 1em;
 }
 
