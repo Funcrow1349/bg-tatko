@@ -1,9 +1,11 @@
 <!-- homepage -->
-<div class="container">
-  <form class="register" [formGroup]="form" (ngSubmit)="register()">
+<div class="register-user-container">
+  <div class="register-header">
+    <h3>Регистрация:</h3>
+  </div>
+  
+  <form class="user-register-form" [formGroup]="form" (ngSubmit)="register()">
     <fieldset>
-      <h2>Регистрация:</h2>
-
       <!-- username -->
       <p class="field">
         <input
@@ -26,14 +28,13 @@
           </p>
         </ng-container>
       </p>
-
       <!-- email -->
       <p class="field">
         <input
           type="email"
           name="email"
           id="email"
-          placeholder="имейл"
+          placeholder="електронна поща"
           formControlName="email"
         />
         <ng-container *ngIf="form.get('email')?.touched">
@@ -48,7 +49,7 @@
           </p>
         </ng-container>
       </p>
-
+      <!-- passwords -->
       <ng-container formGroupName="passGroup">
         <!-- password -->
         <p class="field">
@@ -89,12 +90,12 @@
           </ng-container>
         </p>
       </ng-container>
-
+      <!-- button -->
       <button
         [disabled]="form.invalid"
         [style]="{
-          backgroundColor: form.invalid ? 'grey' : '#411211',
-          textDecoration: form.invalid ? 'none' : 'underline'
+          backgroundColor: form.invalid ? 'grey' : '',
+          textDecoration: form.invalid ? 'none' : ''
         }"
       >
         Създай акаунт

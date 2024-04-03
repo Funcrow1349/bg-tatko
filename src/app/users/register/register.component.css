@@ -1,41 +1,61 @@
-form.register {
-    width: 40%;
+.register-user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-register-form {
+    width: 50%;
     margin: 0 auto;
     text-align: center;
     background-color: #F3DDD5;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.register fieldset {
+.user-register-form fieldset {
     border-radius: 0.3em;
     padding: 2em;
 }
 
-.register h2 {
-    padding-top: 0;
+.register-header {
+    width: 50%;
+    padding-top: 0.7em;
+    margin-top: 0.7em;
     border-bottom: none;
+    text-align: center;
+    background-color: #411211;
+    color:white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.register p {
+.user-register-form p {
     padding-bottom: 0;
     padding-top: 0.4em;
 }
 
-.register input {
+.user-register-form input {
     flex: 0 1 100%;
-    border: 1px solid;
+    border: 1px solid lightgrey;
     padding: 0.3em;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.register button {
+.user-register-form button {
     background-color: rgba(53, 4, 4, 0.936);
     color: white;
     padding: 0.3em 1em;
-    margin-left: 0.5em;
+    margin: 1.5em 0.5em;
+    border: none;
+    border-radius: 5px;
 }
 
-.register button:hover {
-    cursor: pointer;
+.user-register-form button:hover {
     text-decoration: underline;
 }
 
@@ -43,11 +63,4 @@ form.register {
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
-}
-
-p.error {
-    text-align: left;
-    font-size: 0.8em;
-    color: red;
-    padding-top: 0;
 }
