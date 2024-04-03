@@ -1,5 +1,8 @@
 footer {
     background: #F2E1AA;
+    position: relative;
+    bottom: 0;
+    width: 100%;
     margin-top: 0.6em;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
