@@ -25,7 +25,6 @@
 }
 
 .theme-comment {
-  border: 1px solid #411211;
   border-radius: 5px;
   margin-top: 2px;
   display: flex;
@@ -60,7 +59,7 @@ img {
   background-color: white;
   border-radius: 5px;
   padding: 0.5em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.2) inset, 0px -7px 10px -4px rgba(0, 0, 0, 0.2) inset;
 }
 
 .comment-text {
@@ -110,10 +109,12 @@ textarea {
 }
 
 .confirm-changes {
-    padding: 0.2em;
+    padding: 0.3em 0.5em;
     text-align: center;
     background-color: #411211;;
-    color: white
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .confirm-changes:hover {
@@ -133,7 +134,7 @@ textarea {
 
 .delete-prompt-btns {
   display: flex;
-  gap: 0.5em;
+  gap: 0.8em;
   padding-bottom: 0.5em;
 }
 
@@ -141,6 +142,7 @@ textarea {
   padding: 0.3em 0.7em;
   color: white;
   border: none;
+  border-radius: 5px;
 }
 
 .delete-prompt-btns button:hover {
@@ -160,12 +162,22 @@ textarea {
   color: #411211;
   padding: 0.3em 1em;
   margin: 0 1em 1em 1em;
+  border: none;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .new-comment-btn:hover {
   background-color: #f6d499;;
+}
+
+.answer-comment form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
+  padding-bottom: 0.6em;
 }
 
 .answer-comment textarea {

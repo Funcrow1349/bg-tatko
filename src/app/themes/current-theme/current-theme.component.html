@@ -50,7 +50,8 @@
               <button (click)="toggleDeletePromptVisibility(post._id)">
                 <span class="delete">
                   <i class="fa-solid fa-xmark"></i>
-                </span> Изтрий
+                </span>
+                Изтрий
               </button>
             </div>
             <div *ngIf="isEditFormVisible(post._id)">
@@ -79,7 +80,14 @@
                     Коментарът трябва да съдържа поне 10 символа!
                   </p>
                 </ng-container>
-                <button class="confirm-changes" [disabled]="editForm.invalid">
+                <button
+                  class="confirm-changes"
+                  [disabled]="editForm.invalid"
+                  [style]="{
+                    backgroundColor: editForm.invalid ? 'grey' : '',
+                    textDecoration: editForm.invalid ? 'none' : ''
+                  }"
+                >
                   Потвърди
                 </button>
               </form>
@@ -88,11 +96,18 @@
             <div *ngIf="isDeletePromptVisible(post._id)" class="delete-prompt">
               <p>Сигурни ли сте, че искате да изтриете коментара?</p>
               <div class="delete-prompt-btns">
-                <button class="green" (click)="toggleDeletePromptVisibility(post._id)">
+                <button
+                  class="green"
+                  (click)="toggleDeletePromptVisibility(post._id)"
+                >
                   Не
                 </button>
-                <button class="red" (click)="deleteComment(theme._id, post._id)">Да</button>
-                
+                <button
+                  class="red"
+                  (click)="deleteComment(theme._id, post._id)"
+                >
+                  Да
+                </button>
               </div>
             </div>
           </ng-container>
@@ -118,37 +133,45 @@
       </button>
     </div>
 
-    <button class="new-comment-btn" *ngIf="isLoggedIn" (click)="toggleShowPostField()">
+    <button
+      class="new-comment-btn"
+      *ngIf="isLoggedIn"
+      (click)="toggleShowPostField()"
+    >
       <i *ngIf="!showPostField" class="fa-solid fa-circle-left"></i>
       <i *ngIf="showPostField" class="fa-solid fa-circle-down"></i>
-      Публикувай отговор:
+      Коментирай
     </button>
 
     <div class="answer-comment" *ngIf="isLoggedIn && showPostField">
-      <div class="answer">
-        <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
-          <textarea
-            name="postText"
-            id="comment"
-            cols="30"
-            rows="10"
-            formControlName="postText"
-          ></textarea>
+      <form [formGroup]="form" (ngSubmit)="addComment(theme._id)">
+        <textarea
+          name="postText"
+          id="comment"
+          cols="30"
+          rows="10"
+          formControlName="postText"
+        ></textarea>
 
-          <ng-container *ngIf="form.get('postText')?.touched">
-            <p class="error" *ngIf="form.get('postText')?.errors?.['required']">
-              The field with your post is required.
-            </p>
-            <p
-              class="error"
-              *ngIf="form.get('postText')?.errors?.['minlength']"
-            >
-              Post must be at least 10 characters long.
-            </p>
-          </ng-container>
-          <button>Потвърди</button>
-        </form>
-      </div>
+        <ng-container *ngIf="form.get('postText')?.touched">
+          <p class="error" *ngIf="form.get('postText')?.errors?.['required']">
+            Полето е задължително!
+          </p>
+          <p class="error" *ngIf="form.get('postText')?.errors?.['minlength']">
+            Коментарът трябва да съдържа поне 10 символа!
+          </p>
+        </ng-container>
+        <button
+          class="confirm-changes"
+          [disabled]="form.invalid"
+          [style]="{
+            backgroundColor: form.invalid ? 'grey' : '',
+            textDecoration: form.invalid ? 'none' : 'underline'
+          }"
+        >
+          Потвърди
+        </button>
+      </form>
     </div>
   </div>
 </div>
