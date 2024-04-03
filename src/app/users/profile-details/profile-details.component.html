@@ -56,17 +56,21 @@
         </ng-container>
 
         <!-- Actions -->
-        <button class="cancel-button" (click)="onCancel($event)">Отмени</button>
-        <button
-          class="save-button"
-          [disabled]="form.invalid"
-          [style]="{
-            backgroundColor: form.invalid ? 'grey' : 'green',
-            textDecoration: form.invalid ? 'none' : 'underline'
-          }"
-        >
-          Запази
-        </button>
+        <div class="control-btns">
+          <button class="cancel-button" (click)="onCancel($event)">
+            Отмени
+          </button>
+          <button
+            class="save-button"
+            [disabled]="form.invalid"
+            [style]="{
+              backgroundColor: form.invalid ? 'grey' : 'green',
+              textDecoration: form.invalid ? 'none' : ''
+            }"
+          >
+            Запази
+          </button>
+        </div>
       </form>
     </ng-container>
   </div>

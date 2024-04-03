@@ -19,7 +19,7 @@ export class CurrentThemeComponent {
   commentsPerPage: number = 10;
 
   theme = {} as Theme;
-  themePosts: Post[] =[]
+  themePosts: Post[] = []
   
   form = this.fb.group({
     postText: ['', [Validators.required, Validators.minLength(10)]],
