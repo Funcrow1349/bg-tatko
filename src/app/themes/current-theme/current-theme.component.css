@@ -34,15 +34,16 @@
 }
 
 .author-field {
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 200px;
 }
 
 .author-field p {
   margin-top: 0.5em;
+  text-wrap: wrap;
 }
 
 img {

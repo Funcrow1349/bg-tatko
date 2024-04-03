@@ -45,10 +45,13 @@
         <!-- username validations -->
         <ng-container *ngIf="form.get('username')?.touched">
           <p class="error" *ngIf="form.get('username')?.errors?.['required']">
-            Username is required!
+            Полето е задължително!
           </p>
           <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
-            Username must have at least 5 characters!
+            Потребителското име трябва да съдържа поне 5 символа!
+          </p>
+          <p class="error" *ngIf="form.get('username')?.errors?.['maxlength']">
+            Потребителското име не може да съдържа повече от 19 символа!
           </p>
         </ng-container>
 

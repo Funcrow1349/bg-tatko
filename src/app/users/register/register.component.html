@@ -21,6 +21,9 @@
           <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
             Потребителското име трябва да съдържа поне 5 символа!
           </p>
+          <p class="error" *ngIf="form.get('username')?.errors?.['maxlength']">
+            Потребителското име не може да съдържа повече от 19 символа!
+          </p>
         </ng-container>
       </p>
 

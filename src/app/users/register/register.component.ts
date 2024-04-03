@@ -13,7 +13,7 @@ import { matchPasswordsValidator } from '../utils/match-passwords-validator';
 })
 export class RegisterComponent {
   form = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(5)]],
+    username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(19)]],
     email: ['', [Validators.required, emailValidator(VALID_EMAIL_DOMAINS)]],
     passGroup: this.fb.group({
       password: ['', [Validators.required, Validators.minLength(5)]],
